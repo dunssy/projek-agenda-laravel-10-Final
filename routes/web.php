@@ -24,16 +24,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+// Auth
+Route::middleware(['guest'])->group(function(){
+    Route::get('/login' , [LoginController::class,'index'])->name('login');
+    Route::post('/auth/login' , [LoginController::class,'store']);
+});
+// 
+Route::middleware(['auth'])->group(function(){
+    Route::get('/logout' ,[LoginController::class,'logout']);
+    Route::get('/admin',       [AdminController::class, 'index'])->middleware('UserAkses:admin');
+    Route::get('/admin/uji',   [AdminController::class, 'kepsek'])->middleware('UserAkses:kepsek');
+    Route::get('/admin/coba',  [AdminController::class, 'guru'])->middleware('UserAkses:guru');
+});
+// 
+Route::get('/home',function(){return redirect('dashboard');
+});
+// Menunuju Ke admin
+// Logout
+// Menuju Sebuah DAshboard
 Route::get('/dashboard',function(){
     return view('dashboard', ['title'=>"dashboard",'halaman'=>"Home"]);
 });
-
-
-
-Route::resource('/admin',AdminController::class);
-// Auth
-Route::get('/login' , [LoginController::class,'index']);
-Route::post('/auth/login' , [LoginController::class,'store']);
+// Guru
 Route::resource('/guru', GuruController::class);
 Route::get('/mapel/search',[MapelController::class,'search']);
 Route::resource('/mapel', MapelController::class);

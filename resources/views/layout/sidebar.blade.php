@@ -60,12 +60,12 @@
                     <span>Bank Data Agenda</span>
                 </a>
             </li>
-            <li class="sidebar-item">
+            {{-- <li class="sidebar-item">
                 <a href="{{route('admin.index')}}" class="sidebar-link collapsed has-dropdown">
                     <i><ion-icon name="person-add"></ion-icon></i></i>
                     <span>Manage User</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
         <div class="sidebar-footer">
                 <a href="#" class="sidebar-link bg-danger">

@@ -13,25 +13,36 @@ class LoginController extends Controller
     
     public function store(Request $request){
 
-        $request->validate([
-            'email'=>'required',
-            'password'=>'required'
-        ],[
-            'email.required'=>'email Wajib di isi',
-            'password.required'=>'password di isi'
-        ]);
+       $request->validate([
+          'email'=>'required',
+          'password'=>'required'
+       ],
+       [
+        'email.required'=>'Email Harus di isi',
+        'password.required'=>'Password Harus di isi'
+       ]
+       );
 
-        $dataLogin = [
-         'email'=>$request->input('email'),
-         'password'=>$request->input('password'),
-        ];
+       $infologin = [
+        'email'=> $request->email,
+        'password'=>$request->password
+       ];
 
-        if(Auth::attempt($dataLogin)){
-        //   JIka otentikasi 
-        return "berhasil";
-        }else{
-        // Jika Gagal 
-        return "gagal";
-        }
+       if(Auth::attempt($infologin)){
+        if(Auth::user()->level == 'admin'){
+            redirect('admin');
+        }elseif(Auth::user()->level == 'kepsek'){
+            return redirect('admin/uji');
+        }elseif(Auth::user()->level == 'guru'){
+            return redirect('admin/coba');
+
+        } 
+        return redirect('login')->withErrors('Email Dan Password Tidak Sesuai')->withInput();
+       }
+    }
+
+    public function logout(){
+        Auth::logout();
+        redirect('/login');
     }
 }

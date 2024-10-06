@@ -6,23 +6,22 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="text-center">Login Di Sini</h4>
-                    </div>
-                    <div class="card-body">
                         @if ($errors->any())
                                 <div class="alert alert-danger" role="alert">
-                                    @foreach ($errors->all() as $item)    
                                     <ul>
+                                    @foreach ($errors->all() as $item)    
                                         <li>{{$item}}</li>
-                                    </ul>
                                     @endforeach
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </ul>
                                 </div>
                         @endif 
+                    </div>
+                    <div class="card-body">
                         <form action="/auth/login" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}"> 
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>

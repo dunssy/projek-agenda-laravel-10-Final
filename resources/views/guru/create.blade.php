@@ -23,9 +23,14 @@
                         <option value="Wanita">Wanita</option>
                     </select>
                 </div>
-                <div class="form-floating mb-3">
-                    <input type="text" name="agamaguru" class="form-control" id="agamaguru">
-                    <label for="agamaguru">Agama</label>
+                <div class="mb-3">
+                    <select name="agamaguru" id="agamaguru" class="form-control">
+                        <option value="" disable>Pilih Agama...</option>
+                        <option value="islam">islam</option>
+                        <option value="kristen">kristen</option>
+                        <option value="katolik">katolik</option>
+                        <option value="hindu">hindu</option>
+                    </select>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" name="username" class="form-control" id="username">
