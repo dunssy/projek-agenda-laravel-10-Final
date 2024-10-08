@@ -19,6 +19,6 @@ class UserAkses
         if(auth()->user()->level == $level){
             return $next($request);
         }
-        return redirect('admin');
+        return redirect('admin')->json(['error','Anda Tidak Memiliki Akses']);
     }
 }

@@ -27,22 +27,24 @@ class LoginController extends Controller
         'email'=> $request->email,
         'password'=>$request->password
        ];
+        if(Auth::attempt($infologin)){
+            //Mengecek Level 
+            if(Auth::user()->level == 'admin'){
+                    return redirect('admin');        
+            }elseif(Auth::user()->level == 'kepsek'){
+                    return redirect('admin/kepsek');
+            }elseif(Auth::user()->level == 'guru'){
+                    return redirect('/home');
+            } 
+        }else{
+            return redirect('login')->withErrors('Email Dan Password Tidak Sesuai');
+        }
 
-       if(Auth::attempt($infologin)){
-        if(Auth::user()->level == 'admin'){
-            redirect('admin');
-        }elseif(Auth::user()->level == 'kepsek'){
-            return redirect('admin/uji');
-        }elseif(Auth::user()->level == 'guru'){
-            return redirect('admin/coba');
-
-        } 
-        return redirect('login')->withErrors('Email Dan Password Tidak Sesuai')->withInput();
-       }
     }
+
 
     public function logout(){
         Auth::logout();
-        redirect('/login');
+         return redirect('/login');
     }
 }

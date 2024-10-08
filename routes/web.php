@@ -24,35 +24,39 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-// Auth
+// jika User Belum Login
 Route::middleware(['guest'])->group(function(){
+    //Proses Authentikasi 
     Route::get('/login' , [LoginController::class,'index'])->name('login');
     Route::post('/auth/login' , [LoginController::class,'store']);
 });
-// 
+//Jika User Sesudah Login
 Route::middleware(['auth'])->group(function(){
+    // Fungsi Log out
     Route::get('/logout' ,[LoginController::class,'logout']);
-    Route::get('/admin',       [AdminController::class, 'index'])->middleware('UserAkses:admin');
-    Route::get('/admin/uji',   [AdminController::class, 'kepsek'])->middleware('UserAkses:kepsek');
-    Route::get('/admin/coba',  [AdminController::class, 'guru'])->middleware('UserAkses:guru');
+    // Akses Hanya Admin
+    Route::get('/admin ',function(){ return view('dashboard',
+        [
+            'title'=>'Dashboard',
+            'halaman'=>'Administrator'
+        ]); 
+    })->middleware('UserAkses:admin');
+    // Hakases Admin 
+    Route::resource('/guru', GuruController::class)->middleware('UserAkses:admin');
+    Route::resource('/mapel', MapelController::class)->middleware('UserAkses:admin');
+    Route::resource('/jurusan', JurusanController::class)->middleware('UserAkses:admin');
+    Route::resource('/kelas' , KelasController::class)->middleware('UserAkses:admin');
+    Route::resource('/tahun_ajaran',TahunAjaranController::class)->middleware('UserAkses:admin');
+    //Hakases Hanya Untuk kepsek
+    Route::get('agenda/kepsek',[AdminController::class, 'kepsek'])->middleware('UserAkses:kepsek');
+    //Hakases Hanya Untuk Guru
+    Route::get('/agenda/guru',[AdminController::class, 'guru'])->middleware('UserAkses:guru');
 });
 // 
-Route::get('/home',function(){return redirect('dashboard');
+Route::get('/home',function(){return redirect('admin');
 });
 // Menunuju Ke admin
 // Logout
-// Menuju Sebuah DAshboard
-Route::get('/dashboard',function(){
-    return view('dashboard', ['title'=>"dashboard",'halaman'=>"Home"]);
-});
-// Guru
-Route::resource('/guru', GuruController::class);
-Route::get('/mapel/search',[MapelController::class,'search']);
-Route::resource('/mapel', MapelController::class);
-Route::get('/jurusan/search',[JurusanController::class,'search']);
-Route::resource('/jurusan', JurusanController::class);
-Route::get('/kelas/search', [KelasController::class,'search']);
-Route::resource('/kelas' , KelasController::class);
-Route::resource('/tahun_ajaran',TahunAjaranController::class);
+// Admin
+
+

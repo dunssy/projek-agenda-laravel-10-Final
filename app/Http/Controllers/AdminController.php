@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -12,8 +13,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-         return "halo Selamat Datang Di Halaman Admin <h1>" . Auth::user()->name . "</h1>
-         <a href='/logout'>Loguot ></a>";
+     return Redirect('guru');
     }
     public function kepsek()
     {
