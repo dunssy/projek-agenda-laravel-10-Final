@@ -13,7 +13,7 @@
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a href="dashboard" class="sidebar-link">
+                <a href="/admin" class="sidebar-link">
                     <i><ion-icon name="home"></ion-icon></i>
                     <span>Dashboard</span>
                 </a>
@@ -99,7 +99,7 @@
               </div>
             </div>
           </nav>
-        
+    
         <div class="text-center">
             <div class="content pt-3">
                 <ol class="breadcrumb">

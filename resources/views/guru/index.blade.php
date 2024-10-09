@@ -22,28 +22,41 @@
                 <tr class="table-dark">
                     <th>No</th>
                     <th>Foto</th>
-                    <th>Nip</th>
                     <th>Nama</th>
+                    <th>Nip</th>
+                    <th>Alamat</th>
                     <th>Jenis Kelamin</th>
                     <th>Agama</th> 
                     <th>Username</th>
+                    <th>tempat</th>
+                    <th>tanggal</th>
+                    <th>Username</th>
                     <th>Email</th>
+                    <th>Telephone</th>
                     <th>Level</th>
                     <th>opsi</th>
                 </tr>
+                @php
+                    $no = $nomor = 1 + ($data->currentPage() - 1) * $data->perPage(); ;
+                @endphp
                 @foreach ($data as $guru)
                 <tr>
-                    <td>{{$loop->iteration}}</td>
+                    <td>{{$no++}}</td>
                     <td>
                     @if ($guru->foto)
                         <img  class="rounded-circle bg-primary" src="{{ asset('foto/'. $guru->foto) }}" alt="foto" width="50" height="50">
                     @endif</td>
+                    <td>{{$guru->name}}</td>
                     <td>{{$guru->nip}}</td>
-                    <td>{{$guru->nama}}</td>
+                    <td></td>
                     <td>{{$guru->jenis_kelamin}}</td>
                     <td>{{$guru->agama}}</td>
                     <td>{{$guru->username}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>{{$guru->email}}</td>
+                    <td></td>
                     <td>{{$guru->level}}</td>
                     <td>
                         <a href="{{url('/guru/' . $guru->nip)}}" class="btn btn-secondary btn-sm">Detail</a>

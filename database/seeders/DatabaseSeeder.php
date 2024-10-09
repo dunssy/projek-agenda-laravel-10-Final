@@ -38,6 +38,24 @@ class DatabaseSeeder extends Seeder
             'level'=>'guru',
             'password'=>bcrypt('123123')  
             ],
+            [
+            'name'=>'Asep Dahlan',
+            'email'=>'dahlan@gmail.com',
+            'level'=>'guru',
+            'password'=>bcrypt('123123')  
+            ],
+            [
+            'name'=>'Lolii Kancil',
+            'email'=>'Loli@gmail.com',
+            'level'=>'guru',
+            'password'=>bcrypt('123123')  
+            ],
+            [
+            'name'=>'Popol And kUpa',
+            'email'=>'popopl@gmail.com',
+            'level'=>'guru',
+            'password'=>bcrypt('123123')  
+            ],
 
         ];
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardGuru;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JurusanController;
@@ -35,10 +36,10 @@ Route::middleware(['auth'])->group(function(){
     // Fungsi Log out
     Route::get('/logout' ,[LoginController::class,'logout']);
     // Akses Hanya Admin
-    Route::get('/admin ',function(){ return view('dashboard',
+    Route::get('agenda',function(){ return view('dashboard',
         [
-            'title'=>'Dashboard',
-            'halaman'=>'Administrator'
+            'title'=>'Agenda Smkn',
+            'halaman'=>'Administrator..'
         ]); 
     })->middleware('UserAkses:admin');
     // Hakases Admin 
@@ -50,7 +51,7 @@ Route::middleware(['auth'])->group(function(){
     //Hakases Hanya Untuk kepsek
     Route::get('agenda/kepsek',[AdminController::class, 'kepsek'])->middleware('UserAkses:kepsek');
     //Hakases Hanya Untuk Guru
-    Route::get('/agenda/guru',[AdminController::class, 'guru'])->middleware('UserAkses:guru');
+    Route::get('agenda/guru' , [DashboardGuru::class,'index'])->middleware('UserAkses:guru');
 });
 // 
 Route::get('/home',function(){return redirect('admin');

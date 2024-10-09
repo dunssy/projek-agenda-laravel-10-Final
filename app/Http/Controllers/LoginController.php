@@ -30,11 +30,11 @@ class LoginController extends Controller
         if(Auth::attempt($infologin)){
             //Mengecek Level 
             if(Auth::user()->level == 'admin'){
-                    return redirect('admin');        
+                    return redirect('agenda');        
             }elseif(Auth::user()->level == 'kepsek'){
-                    return redirect('admin/kepsek');
+                    return redirect('agenda/admin');
             }elseif(Auth::user()->level == 'guru'){
-                    return redirect('/home');
+                    return redirect('agenda/guru');
             } 
         }else{
             return redirect('login')->withErrors('Email Dan Password Tidak Sesuai');
