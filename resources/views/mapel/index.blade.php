@@ -5,9 +5,13 @@
                 <h1 class="card-title text-start">Data mapel</h1>
             </div>
             <div class="card-body shadow">
-            <div class="col-md-1 ml-auto">
+            <div class="col-md-1 ml-auto mb-3">
                 <a href="mapel/create" class=" btn btn-success btn-sm"><ion-icon name="add-circle"></ion-icon>Tambah mapel</a>
             </div>
+            <form class="d-flex" method="GET" >
+                <input class="form-control me-2" type="search" placeholder="Cari Data Mapel..." name="cari" autofocus >
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> 
             <table class="table table-striped table-hover">
                 <thead>
                     <hr>

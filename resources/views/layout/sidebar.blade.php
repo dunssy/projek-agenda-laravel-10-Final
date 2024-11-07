@@ -13,7 +13,7 @@
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a href="/admin" class="sidebar-link">
+                <a href="/agenda" class="sidebar-link">
                     <i><ion-icon name="home"></ion-icon></i>
                     <span>Dashboard</span>
                 </a>
@@ -45,7 +45,7 @@
             <li class="sidebar-item">
                 <a href="{{route('guru.index')}}" class="sidebar-link collapsed has-dropdown">
                     <i><ion-icon name="folder-open"></ion-icon></i></i>
-                    <span>Manage Guru</span>
+                    <span>Manage User</span>
                 </a>
             </li>   
             <li class="sidebar-item">
@@ -73,7 +73,7 @@
                 </a>
         </div>
     </aside>
-    <div class="main p-4">
+    <div class="main p-4"  style="max-height: 600px; overflow-y: auto;">
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Halaman Administrator</a>
@@ -85,14 +85,19 @@
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <!-- Foto Profil -->
-                        <img src="https://via.placeholder.com/30" class="rounded-circle me-2" alt="Profile Picture" width="30" height="30">
-                      {{Auth::user()->name}}
+            
+                        <img src="{{ asset('foto/'. Auth::user()->foto)}}" class="rounded-circle me-2" alt="Profile Picture" width="30" height="30">
+                      {{Auth::user()->username}}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> <!-- dropdown-menu-end agar dropdown ke kanan -->
-                      <li><a class="dropdown-item" href="#">Settings</a></li>
+                      <li><a class="dropdown-item" href="/settings">Settings</a></li>
                       <li><a class="dropdown-item" href="#">Profile</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                      <li>
+                        <form onsubmit="return confirm('Yakin keluar akun')" class="d-inline" action="/logout" method="GET">
+                            <button class="dropdown-item">Logout</button>
+                       </form>
+                     </li>
                     </ul>
                   </li>
                 </ul>
@@ -109,16 +114,7 @@
             </div>
         </div>
         {{-- Tampilkan sebuah pesan jika  --}}
-        @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $item)    
-                    <li>{{$item}}</li>
-                    @endforeach
-                </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif 
+        
         @if (Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>{{Session::get('success')}}</strong> Di Tambahkan.
@@ -137,8 +133,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        
-        @yield('main')
+       
+            @yield('main')
+    
     </div>
 </div>
 @endsection

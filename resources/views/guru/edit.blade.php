@@ -6,62 +6,82 @@
                 <h1>Edit Data</h1>
             </div>
             <div class="card-body">
-            <form action="{{ url( 'guru/' . $data->nip )}}" method="POST" enctype="multipart/form-data">
-            @method('PUT')
-            @csrf
-                <div class="mb-3">
-                   <label for="nomorguru">Nip</label>
-                   <input type="text" name="nomorguru" class="form-control" value="{{$data->nip}}">
-                </div>
-                <div class="mb-2">
-                    <label for="namaguru">Nama</label>
-                    <input type="text" class="form-control" name="namaguru"  id="namaguru"  value="{{$data->nama}}">
-                </div>
-                <div class="mb-3">
-                    <label for="alamatguru" class="form-label">Jenis Kelamin</label>
-                    <select name="jkguru" id="jkguru" class="form-control">
-                        <option value="">{{$data->jenis_kelamin}}</option>
-                        <option value="pria" {{ ($data->jenis_kelamin=='pria') ? 'selected' : '' }}>Pria</option>
-                        <option value="wanita" {{ ($data->jenis_kelamin=='wanita') ? 'selected' : '' }}>Wanita</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="agama">Agama</label>
-                    <input type="text" name="agamaguru" class="form-control" value="{{$data->agama}}">
-                </div>
-                <div class="mb-3">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" class="form-control" value="{{$data->username}}">
-                </div>
-                <div class="mb-3">
-                    <label for="emailguru">Email</label>
-                    <input type="text" name="emailguru" class="form-control" value="{{$data->email}}">
-                </div>
-                <div class="mb-3">
-                    <label for="level">Level</label>
-                    <select name="level" id="level" class="form-control">
-                        <option value="">{{$data->level}}</option>
-                        <option value="admin" {{ ($data->level =='admin') ? 'selected' : '' }}>Admin</option>
-                        <option value="guru"{{ ($data->level == 'guru') ? 'selected' : '' }}>Guru</option> 
-                    </select>
-                </div>
-                  @if ($data->foto)
-                  <div class="mb-3">
-                    <img src="{{asset('foto/'. $data->foto)}}" alt="" width="80" height="50">
-                  </div>
-                  @endif
-                  <div class="mb-3">  
-                    <label for="fotoguru" class="form-label">foto</label>
-                    <input type="file" name="fotoguru" class="form-control" id="fotoguru" value="{{Session::get('fotoguru')}}">
-                  </div>
-                  <div class="mb-3">
-                    <label for="passguru">Password</label>
-                    <input type="password" name="passguru" class="form-control">
-                </div>
-                <div class="d-grid gap-2 d-md-block pt-3">
-                    <button class="btn btn-primary" type="submit" name="save">Update</button>
-                </div>
-            </form>
+                <form action="{{ url( 'guru/' . $data->id_user )}}" method="POST" enctype="multipart/form-data">
+                @method('PUT')
+                @csrf
+                    <div class="form-floating mb-3 ">
+                        <input type="text" class="form-control" name="namaguru"  id="namaguru"  value="{{$data->name}}">
+                        <label for="namaguru">Nama</label>
+                    </div>               
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="nomorguru" id="floatingInput" value="{{$data->nip}}">
+                        <label for="nomorguru">Nip Guru</label>
+                    </div>
+                    <div class="mb-3">
+                        <select name="jkguru" id="jkguru" class="form-control">
+                            <option value="">Pilih Jenis Kelamin..</option>
+                            <option value="pria" {{ ($data->kelamin =='pria') ? 'selected' : '' }}>Pria</option>
+                            <option value="wanita" {{ ($data->kelamin =='wanita') ? 'selected' : '' }}>Wanita</option>
+                        </select>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea name="alamatguru" id="alamatguru" cols="10" rows="15" class="form-control">{{$data->alamat}}</textarea>
+                        <label for="alamatguru">Alamat</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" id="telponguru" name="telponguru" class="form-control" value="{{$data->telp}}">
+                        <label for="telponguru">No Handphone</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" id="tempat" name="tempat" class="form-control" value="{{$data->tempat}}">
+                        <label for="tempat">Tempat Lahir</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="date" id="tanggal" name="tanggal" class="form-control" value="{{$data->tgl}}">
+                        <label for="tanggal">Tanggal Lahir</label>
+                    </div>
+                    <div class="mb-3">
+                        <select name="agamaguru" id="agamaguru" class="form-control">
+                            <option value="" disable>Pilih Agama...</option>
+                            <option value="islam" {{ ($data->agama=='islam') ? 'selected' : '' }}>Islam</option>
+                            <option value="kristen" {{ ($data->agama=='kristen') ? 'selected' : '' }}>Kristen</option>
+                            <option value="katolik" {{ ($data->agama=='katolik') ? 'selected' : '' }}>Katolik</option>
+                            <option value="konghucu" {{ ($data->agama=='konghucu') ? 'selected' : '' }}>Konghuvu==cu</option>
+                            <option value="hindu" {{ ($data->agama=='hindu') ? 'selected' : '' }}>Islam</option>
+                            <option value="budha" {{ ($data->agama=='budha') ? 'selected' : '' }}>Islam</option>
+                        </select>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="username" class="form-control" id="username" value="{{$data->username}}">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" name="emailguru" class="form-control" id="emailguru" value="{{$data->email}}">
+                        <label for="emailguru">Email</label>
+                    </div>
+                    <div class="mb-3">
+                        <select name="level" id="level" class="form-control">
+                            <option value="">Anda Sebagai...</option>
+                        <option value="admin" {{ ($data->level=='admin') ? 'selected' : '' }}>Admin</option>
+                        <option value="guru" {{ ($data->level=='guru') ? 'selected' : '' }}>Guru</option>
+                        </select>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" name="passguru" class="form-control" id="password">
+                        <label for="passguru">Password</label>
+                    </div>
+                    @if ($data->foto)
+                        <div class="mb-3">
+                            <img src="{{asset('foto/'. $data->foto)}}" alt="" width="80" height="50">
+                        </div>
+                    @endif
+                    <div class="mb-3">  
+                        <input type="file" name="fotoguru" class="form-control" id="fotoguru">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submit" name="save">simpan</button>
+                    </div>
+                </form>
             </div>
         </div>
 

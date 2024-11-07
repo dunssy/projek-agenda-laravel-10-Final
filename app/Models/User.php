@@ -64,4 +64,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function mapel(){
+        return $this->belongsToMany(Mapel::class,'g_mapel');
+    }
+    public function jurusan(){
+        return $this->belongsToMany(Kelas::class,'g_mapel');
+    }
+    public function kelas(){
+        return $this->belongsToMany(Jurusan::class,'g_mapel');
+    }
+
 }

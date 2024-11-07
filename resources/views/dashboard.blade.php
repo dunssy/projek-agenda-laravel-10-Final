@@ -14,10 +14,78 @@
             </ul>
         </div>
     </div>
-<div class="container mt-4">
-    <div class="row mt-3">
-   
+    <div class="container mt-4">
+            <div class="row mt-3">
+        <!-- Left side: Information Box -->
+        <div class="col-md-6">
+            <div class="info-box">
+                <h5>Informasi Terkini:</h5>
+            {{-- Carsouel --}}
+            </div>
+        </div>
+        <!-- Right side: Cards -->
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-success">
+                        <div class="card-body">
+                            <div class="card-header">Agenda Hari ini</div>
+                            <h2>0</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-primary">
+                        <div class="card-body">
+                            <div class="card-header">Semua Agenda</div>
+                            <h2>31</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-warning">
+                        <div class="card-body">
+                            <div class="card-header">Jumlah Guru</div>
+                            @php
+                                $totalUsers = DB::table('users')->count();
+                            @endphp
+                            <h2>{{$totalUsers}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-warning">
+                        <div class="card-body">
+                            <div class="card-header">Jumlah Kelas</div>
+                            @php
+                                $totalUsers = DB::table('kelas')->count();
+                            @endphp
+                            <h2>{{$totalUsers}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-warning">
+                        <div class="card-body">
+                            <div class="card-header">Jumlah Jurusan</div>
+                            @php
+                                $totalUsers = DB::table('jurusan')->count();
+                            @endphp
+                            <h2>{{$totalUsers}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card bg-danger">
+                        <div class="card-body">
+                            <div class="card-header">File Perangkat</div>
+                            <h2>11</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
-</div>
 
 @endsection

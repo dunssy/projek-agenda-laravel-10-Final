@@ -9,7 +9,14 @@ class Mapel extends Model
 {
     use HasFactory;
     protected $table = 'mapel';
+    protected $primaryKey = 'id_mapel';
     protected $fillable = ['mapel'];
-    protected $guarded = ['id_mapel'];
-    
+    protected $guarded = 'id_mapel';
+
+    public function gmapel(){
+        return $this->hasMany(G_mapel::class);
+    }
+
+
+  
 }

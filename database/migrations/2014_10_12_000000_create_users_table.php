@@ -15,14 +15,14 @@ return new class extends Migration
             $table->id('id_user');
             $table->string('name');
             $table->Integer('nip')->nullable();
-            $table->string('kelamin')->nullable();
+            $table->enum('kelamin',['pria','wanita'])->default('pria');
             $table->text('alamat')->nullable();
             $table->string('telp')->nullable();
             $table->string('username')->nullable(); 
             $table->string('password');
             $table->string('tempat')->nullable();
             $table->date('tgl')->nullable();
-            $table->string('agama')->nullable();
+            $table->enum('agama',['islam','kristen','katolik','hindu','budha','konghucu'])->nullable();
             $table->string('email')->unique();
             $table->string('foto')->nullable();
             $table->enum('level',['admin','guru','kepsek'])->default('admin');

@@ -9,7 +9,6 @@ class TahunAjaran extends Model
 {
     use HasFactory;
     protected $table = 'tahun_ajaran';
-    public $timestamps = false;
     protected $guarded = ['id_ajaran'];
     protected $fillable = ['ajaran'];
 }

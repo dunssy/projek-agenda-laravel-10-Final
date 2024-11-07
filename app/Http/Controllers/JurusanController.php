@@ -10,9 +10,15 @@ class JurusanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Jurusan::orderBy('id_jurusan')->paginate(5);
+        $search = $request->input('cari');
+        if(!empty($search)){
+            $data = Jurusan::where('jurusan','like','%'.$search.'%')->paginate(1);
+        }else{
+            $data =  Jurusan::orderBy('id_jurusan')->paginate(5);
+        }
+
         return view('jurusan.index',['title'=>'Kelola Jurusan','halaman'=>'Data Jurusan'])->with('data',$data);
     }
 

@@ -10,9 +10,16 @@ class MapelController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Mapel::orderBy('id_mapel','asc')->paginate(4);
+        //Cari data
+        $search = $request->input('cari');
+        // Jika kolom pencarian tidak kosong
+        if(!empty($search)){
+            $data = Mapel::where('mapel','like','%'.$search.'%')->paginate(1);
+        }else{
+            $data = Mapel::orderBy('id_mapel')->paginate(5);
+        }
         return view('mapel.index',['title'=>"Kelola Mapel",'halaman'=>'Data Mapel'])->with('data',$data);
     }
 

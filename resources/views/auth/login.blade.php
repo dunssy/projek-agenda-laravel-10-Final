@@ -3,8 +3,10 @@
     <div class="container vh-100 d-flex align-items-center">
         <div class="row justify-content-center w-100">
             <div class="col-md-6">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-header">
+                         <!-- Gambar di atas login form -->
+                   <img src="{{asset('img/logosmkncompreng.png')}}" alt="Gambar Sebelum Login" style="display: block; margin: 0 auto; width: 150px;">   
                         <h4 class="text-center">Login Di Sini</h4>
                         @if ($errors->any())
                                 <div class="alert alert-danger" role="alert">

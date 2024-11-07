@@ -6,15 +6,25 @@
                 <h1 class="card-title text-start">Tambah Guru</h1>
             </div>
             <div class="card-body">
+                @if ($errors->any()) 
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $item)    
+                        <li>{{$item}}</li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif  
             <form action="/guru" method="POST" enctype="multipart/form-data">
              @csrf
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="nomorguru" id="floatingInput" value="{{Session::get('nomorguru')}}">
-                    <label for="floatingInput">Nip Guru</label>
-                </div>
-                <div class="form-floating mb-3">
+                <div class="form-floating mb-3 ">
                     <input type="text" class="form-control" name="namaguru"  id="namaguru"  value="">
                     <label for="namaguru">Nama</label>
+                </div>               
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="nomorguru" id="floatingInput" value="{{Session::get('nomorguru')}}">
+                    <label for="nomorguru">Nip Guru</label>
                 </div>
                 <div class="mb-3">
                     <select name="jkguru" id="jkguru" class="form-control">
@@ -22,6 +32,22 @@
                         <option value="Pria">Pria</option>
                         <option value="Wanita">Wanita</option>
                     </select>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea name="alamatguru" id="alamatguru" cols="10" rows="15" class="form-control"></textarea>
+                    <label for="alamatguru">Alamat</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" id="telponguru" name="telponguru" class="form-control">
+                    <label for="telponguru">No Handphone</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" id="tempat" name="tempat" class="form-control">
+                    <label for="tempat">Tempat Lahir</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="date" id="tanggal" name="tanggal" class="form-control">
+                    <label for="tanggal">Tanggal Lahir</label>
                 </div>
                 <div class="mb-3">
                     <select name="agamaguru" id="agamaguru" class="form-control">
@@ -60,4 +86,5 @@
             </form>
             </div>
         </div>
+ 
 @endsection

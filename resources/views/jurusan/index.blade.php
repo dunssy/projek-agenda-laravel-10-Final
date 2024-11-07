@@ -1,18 +1,22 @@
 @extends('layout.sidebar')
 @section('main')
-    <div class="card">
-        <div class="card-header">
-                <h1 class="card-title text-start">Data jurusan</h1>
-            </div>
-            <div class="card-body shadow">
-            <div class="col-md-1 ml-auto">
-                <a href="jurusan/create" class=" btn btn-success btn-sm"><ion-icon name="add-circle"></ion-icon>Tambah jurusan</a>
-            </div>
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title text-start">Data jurusan</h1>
+    </div>
+    <div class="card-body shadow">
+        <div class="col-md-1 ml-auto mb-3">
+            <a href="jurusan/create" class=" btn btn-success btn-sm"><ion-icon name="add-circle"></ion-icon>Tambah jurusan</a>
+        </div>
+        <form class="d-flex" method="GET" >
+            <input class="form-control me-2" type="search" placeholder="Cari Data User..." name="cari" autofocus >
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> 
             <table class="table table-striped table-hover">
                 <thead>
                     <hr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr class="table-dark">
                     <th>No</th>
                     <th>Nama jurusan</th>

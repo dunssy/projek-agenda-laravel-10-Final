@@ -9,6 +9,8 @@ class Kelas extends Model
 {
     use HasFactory;
     protected $table = 'kelas';
+    protected $primaryKey = 'id_kelas';
     protected $fillable = ['kelas'];
-    protected $guarded = ['id_kelas'];
+    protected $guarded = 'id_kelas';
+
 }
