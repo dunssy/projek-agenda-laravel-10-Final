@@ -6,46 +6,38 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body text-center">
-                    <img src="https://via.placeholder.com/150" alt="Profile Picture" class="rounded-circle img-fluid mb-3" width="150">
-                    <h4>Nina Mcintire</h4>
-                    <p class="text-muted">Software Engineer</p>
+                    <img src="{{ asset('foto/'. Auth::user()->foto)}}" alt="Profile Picture" class="rounded-circle mb-3" width="150" >
+                    <h4>{{Auth::user()->username}}</h4>
                     <div class="mb-2">
-                        <strong>Followers</strong>
-                        <p>1,322</p>
+                        <strong>Nama</strong>
+                        <p>{{Auth::user()->name}}</p>
                     </div>
                     <div class="mb-2">
-                        <strong>Following</strong>
-                        <p>543</p>
+                        <strong>Telephone</strong>
+                        <p>{{Auth::user()->telp}}</p>
                     </div>
                     <div class="mb-2">
-                        <strong>Friends</strong>
-                        <p>13,287</p>
+                        <strong>Email</strong>
+                        <p>{{Auth::user()->email}}</p>
                     </div>
-                    <button class="btn btn-primary">Follow</button>
-                </div>
-            </div>
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h5>About Me</h5>
-                    <p>Brief description about the user.</p>
+                    <a href="https://www.instagram.com/midun_ahmad17/" class="btn btn-primary">Follow</a> 
                 </div>
             </div>
         </div>
-        
+    
         <!-- Profile Content -->
         <div class="col-md-8">
             <div class="card">
+                <div class="card-header bg-primary">
+                </div>
                 <div class="card-body">
                     <!-- Tabs for Activity, Timeline, Settings -->
                     <ul class="nav nav-tabs mb-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Activity</a>
+                            <a class="nav-link active{{ Route::is('settings') ? 'active' : '' }}" href="{{ url('settings')}}">My Acount</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Timeline</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Settings</a>
+                            <a class="nav-link{{ Route::is('settings') ? 'active' : '' }}" href="{{ url('settings/' . Auth::user()->id_user .'/edit')}}">Settings</a>
                         </li>
                     </ul>
 
@@ -54,32 +46,33 @@
                         <div class="mb-3 row">
                             <label for="name" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" placeholder="Name">
+                                <input type="text" class="form-control" id="name" placeholder="{{Auth::user()->username}}" disabled>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="email" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="email" placeholder="Email">
+                                <input type="email" class="form-control" id="email" placeholder="{{Auth::user()->email}}" disabled>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="experience" class="col-sm-2 col-form-label">Experience</label>
+                            <label for="experience" class="col-sm-2 col-form-label">Alamat</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" id="experience" rows="3" placeholder="Experience"></textarea>
+                                <textarea class="form-control" id="experience" rows="3" placeholder="{{Auth::user()->alamat}}" disabled></textarea>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="skills" class="col-sm-2 col-form-label">Skills</label>
+                            <label for="skills" class="col-sm-2 col-form-label">Tempat Lahir</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" id="skills" rows="2" placeholder="Skills"></textarea>
+                                <textarea class="form-control" id="skills" rows="2" placeholder="{{Auth::user()->tempat}}" disabled></textarea>
                             </div>
                         </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="terms">
-                            <label class="form-check-label" for="terms">I agree to the <a href="#">terms and conditions</a></label>
+                        <div class="mb-3 row">
+                            <label for="email" class="col-sm-2 col-form-label">No Telephone</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email" placeholder="{{Auth::user()->telp}}" disabled>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-danger">Submit</button>
                     </form>
                 </div>
             </div>

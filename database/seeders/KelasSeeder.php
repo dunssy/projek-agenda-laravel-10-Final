@@ -16,31 +16,13 @@ class KelasSeeder extends Seeder
         //
         $userData = [
             [
-             'kelas'=>'X 1'
+             'kelas'=>'12'
             ],
             [
-             'kelas'=>'X 2'
+             'kelas'=>'11'
             ],
             [
-             'kelas'=>'X 3'
-            ],
-            [
-             'kelas'=>'XI 1'
-            ],
-            [
-             'kelas'=>'XI 2'
-            ],
-            [
-             'kelas'=>'XI 3'
-            ],
-            [
-             'kelas'=>'XII 1'
-            ],
-            [
-             'kelas'=>'XII 2'
-            ],
-            [
-             'kelas'=>'XII 3'
+             'kelas'=>'12'
             ],
         ];
         foreach($userData as $key => $val ){

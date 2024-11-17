@@ -13,7 +13,7 @@
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a href="/agenda" class="sidebar-link">
+                <a href="/dashboard" class="sidebar-link">
                     <i><ion-icon name="home"></ion-icon></i>
                     <span>Dashboard</span>
                 </a>
@@ -24,19 +24,19 @@
                     <span>Data Master</span>
                 </a>
                     <ul id="datamaster" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <a href="{{route('mapel.index')}}" class="sidebar-link collapsed has-dropdown">
+                        <a href="/mapel" class="sidebar-link collapsed has-dropdown">
                             <i><ion-icon name="paper"></ion-icon></i> 
                             <span>Kelola Mapel</span>
                         </a>
-                        <a href="{{route('jurusan.index')}}" class="sidebar-link collapsed has-dropdown">
+                        <a href="/jurusan" class="sidebar-link collapsed has-dropdown">
                             <i><ion-icon name="business"></ion-icon></i> 
                             <span>Kelola Jurusan</span>
                         </a>
-                        <a href="{{route('kelas.index')}}" class="sidebar-link collapsed has-dropdown">
+                        <a href="/kelas" class="sidebar-link collapsed has-dropdown">
                             <i><ion-icon name="bookmark"></ion-icon></i> 
                             <span>Kelola Kelas</span>
                         </a>
-                        <a href="{{route('tahun_ajaran.index')}}" class="sidebar-link collapsed has-dropdown">
+                        <a href="/tahun_ajaran" class="sidebar-link collapsed has-dropdown">
                             <i><ion-icon name="school"></ion-icon></i> 
                             <span>Tahun Ajaran</span>
                         </a>
@@ -90,8 +90,8 @@
                       {{Auth::user()->username}}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> <!-- dropdown-menu-end agar dropdown ke kanan -->
-                      <li><a class="dropdown-item" href="/settings">Settings</a></li>
-                      <li><a class="dropdown-item" href="#">Profile</a></li>
+                      <li><a class="dropdown-item" href="{{url('settings/' . Auth::user()->id_user .'/edit')}}">Settings</a></li>
+                      <li><a class="dropdown-item" href="/settings">Profile</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li>
                         <form onsubmit="return confirm('Yakin keluar akun')" class="d-inline" action="/logout" method="GET">

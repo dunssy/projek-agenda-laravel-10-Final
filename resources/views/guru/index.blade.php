@@ -27,7 +27,6 @@
                     <th>Alamat</th>
                     <th>Kelamin</th>
                     <th>Agama</th> 
-                    <th>Username</th>
                     <th>tempat</th>
                     <th>tanggal</th>
                     <th>Username</th>
@@ -52,7 +51,6 @@
                     <td>{{$guru->alamat}}</td>
                     <td>{{$guru->kelamin}}</td>
                     <td>{{$guru->agama}}</td>
-                    <td>{{$guru->username}}</td>
                     <td>{{$guru->tempat}}</td>
                     <td>{{$guru->tgl}}</td>
                     <td>{{$guru->username}}</td>
@@ -60,8 +58,7 @@
                     <td>{{$guru->telp}}</td>
                     <td>{{$guru->level}}</td>
                     <td>
-                        <a href="{{url('/guru/' . $guru->id_user)}}" class="btn btn-secondary btn-sm">Detail</a>
-                        <a href="{{url('/guru/' . $guru->id_user.'/edit')}}" class="btn btn-warning btn-sm">Edit</a>
+                         <a href="{{url('/guru/' . $guru->id_user.'/edit')}}" class="btn btn-warning btn-sm">Edit</a>
                          <form onsubmit="return confirm('Yakin hapus Data ')" class="d-inline" action="{{ url('guru/' . $guru->id_user)}}" method="POST">@csrf @method('DELETE')
                         <button class="btn btn-danger btn-sm">Hapus</button>
                         </form>

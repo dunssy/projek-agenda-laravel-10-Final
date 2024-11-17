@@ -30,7 +30,7 @@
                     <td>{{$nomor++}}</td>
                     <td>{{$jurusan->jurusan}}</td>
                     <td>
-                        <a href="{{url('/jurusan/' . $jurusan->id_jurusan)}}" class="btn btn-secondary btn-sm">Detail</a>
+                        
                         <a href="{{url('/jurusan/' . $jurusan->id_jurusan.'/edit')}}" class="btn btn-warning btn-sm">Edit</a>
                          <form onsubmit="return confirm('Yakin hapus Data ')" class="d-inline" action="{{ url('jurusan/' . $jurusan->id_jurusan)}}" method="POST">@csrf @method('DELETE')
                         <button class="btn btn-danger btn-sm">Hapus</button>

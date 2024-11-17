@@ -18,7 +18,7 @@ class MapelController extends Controller
         if(!empty($search)){
             $data = Mapel::where('mapel','like','%'.$search.'%')->paginate(1);
         }else{
-            $data = Mapel::orderBy('id_mapel')->paginate(5);
+            $data = Mapel::orderBy('id_mapel')->paginate(8);
         }
         return view('mapel.index',['title'=>"Kelola Mapel",'halaman'=>'Data Mapel'])->with('data',$data);
     }

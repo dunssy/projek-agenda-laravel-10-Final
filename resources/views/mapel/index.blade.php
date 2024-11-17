@@ -30,7 +30,6 @@
                     <td>{{$nomor++}}</td>
                     <td>{{$mapel->mapel}}</td>
                     <td>
-                        <a href="{{url('/mapel/' . $mapel->id_mapel)}}" class="btn btn-secondary btn-sm">Detail</a>
                         <a href="{{url('/mapel/' . $mapel->id_mapel.'/edit')}}" class="btn btn-warning btn-sm">Edit</a>
                          <form onsubmit="return confirm('Yakin hapus Data ')" class="d-inline" action="{{ url('mapel/' . $mapel->id_mapel)}}" method="POST">@csrf @method('DELETE')
                         <button class="btn btn-danger btn-sm">Hapus</button>

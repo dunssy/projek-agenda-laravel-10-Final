@@ -66,13 +66,13 @@ class User extends Authenticatable
     ];
 
     public function mapel(){
-        return $this->belongsToMany(Mapel::class,'g_mapel');
+        return $this->belongsTo(G_mapel::class,'id_mapel');
     }
     public function jurusan(){
-        return $this->belongsToMany(Kelas::class,'g_mapel');
+        return $this->belongsTo(G_mapel::class,'id_kelas');
     }
     public function kelas(){
-        return $this->belongsToMany(Jurusan::class,'g_mapel');
+        return $this->belongsTo(G_mapel::class,'id_jurusan');
     }
 
 }

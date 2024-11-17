@@ -28,7 +28,6 @@
                     <td>{{$kelas->kelas}}</td>
                     <td></td>
                     <td>
-                        <a href="{{url('/kelas/' . $kelas->id_kelas)}}" class="btn btn-secondary btn-sm">Detail</a>
                         <a href="{{url('/kelas/' . $kelas->id_kelas.'/edit')}}" class="btn btn-warning btn-sm">Edit</a>
                          <form onsubmit="return confirm('Yakin hapus Data ')" class="d-inline" action="{{ url('kelas/' . $kelas->id_kelas)}}" method="POST">@csrf @method('DELETE')
                         <button class="btn btn-danger btn-sm">Hapus</button>

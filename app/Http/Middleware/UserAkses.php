@@ -16,9 +16,9 @@ class UserAkses
      */
     public function handle(Request $request, Closure $next , $level): Response
     {
-        if(auth()->user()->level == $level){
+        if(Auth()->user()->level == $level){
             return $next($request);
         }
-        return redirect('agenda');
+        return redirect('dashboard');
     }
 }

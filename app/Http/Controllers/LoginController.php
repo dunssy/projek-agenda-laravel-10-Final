@@ -33,13 +33,13 @@ class LoginController extends Controller
             //Mengecek Level 
             if(Auth::user()->level == 'admin'){
                 // User admin
-                    return redirect('agenda');        
+                    return redirect('dashboard');        
             }elseif(Auth::user()->level == 'kepsek'){
                 // User Kepsek
                     return redirect('agenda');
             }elseif(Auth::user()->level == 'guru'){
                 // User Guru
-                    return redirect('agenda/guru');
+                    return redirect('dashboard/guru');
             } 
         }else{
             // Jika login gagal kembalikan ke form login awal dengan mengirim sebuah pesan eror 
@@ -56,3 +56,4 @@ class LoginController extends Controller
          return redirect('/login');
     }
 }
+    

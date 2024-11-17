@@ -1,4 +1,4 @@
-@extends('layout.sidebar')
+@extends('layout.navbar')
 @section('main')
 <div class="container mt-5">
   <div class="row">
@@ -34,10 +34,10 @@
                 <!-- Tabs for Activity, Timeline, Settings -->
                 <ul class="nav nav-tabs mb-3">
                   <li class="nav-item">
-                      <a class="nav-link{{ Route::is('settings') ? 'active' : '' }}" href="{{ url('settings')}}">My Acount</a>
+                      <a class="nav-link{{ Route::is('setings/guru') ? 'active' : '' }}" href="{{ url('setings/guru')}}">My Acount</a>
                   </li>
                     <li class="nav-item">
-                      <a class="nav-link active{{ Route::is('settings') ? 'active' : '' }}" href="{{ url('settings/' . Auth::user()->id_user .'/edit')}}">Settings</a>
+                      <a class="nav-link active{{ Route::is('setings/guru') ? 'active' : '' }}" href="{{ url('setings/guru/' . Auth::user()->id_user .'/edit')}}">Settings</a>
                     </li>
                 </ul>
                   @if ($errors->any())
@@ -51,7 +51,7 @@
                    </div>
                    @endif 
                   <!-- Settings Form -->
-                  <form action="{{ url( 'settings/' . $data->id_user)}}" method="POST" enctype="multipart/form-data">
+                  <form action="{{ url( 'setings/guru/' . $data->id_user)}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="form-floating mb-3 ">

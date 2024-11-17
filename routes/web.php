@@ -1,8 +1,11 @@
 <?php
 use App\Models\User;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminEditController;
+use App\Http\Controllers\Guru\AgendaController;
 use App\Http\Controllers\Guru\DashboardGuru;
 use App\Http\Controllers\Guru\MapelGuruController;
+use App\Http\Controllers\Guru\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JurusanController;
@@ -34,24 +37,29 @@ Route::middleware(['guest'])->group(function(){
 });
 //Jika User Sesudah Login
 Route::middleware(['auth'])->group(function(){
-   // Fungsi Log out
-    Route::get('/logout' ,[LoginController::class,'logout']);
-    // Akses Hanya Admin
-    Route::get('/agenda',[AdminController::class,'index'])->middleware('UserAkses:admin');
-    // Hakases Admin Dan Kepsek
-    Route::get('/settings',function(){return view('admin.index',['title'=>'profile','halaman'=>'setting']);});
-    Route::resource('/guru', GuruController::class)->middleware('UserAkses:admin,kepsek');
-    Route::resource('/mapel', MapelController::class)->middleware('UserAkses:admin');
-    Route::resource('/jurusan', JurusanController::class)->middleware('UserAkses:admin');
-    Route::resource('/kelas' , KelasController::class)->middleware('UserAkses:admin');
-    Route::resource('/tahun_ajaran',TahunAjaranController::class)->middleware('UserAkses:admin');
-    //Hakases Hanya Untuk Guru
+    Route::group([],function(){
+        // Fungsi Log out
+         Route::get('/logout' ,[LoginController::class,'logout']);
+         // Akses Hanya Admin
+         Route::get('/dashboard',[AdminController::class,'index']);
+         // Hakases Admin Dan Kepsek
+         Route::resource('/settings',AdminEditController::class);
+         Route::resource('/guru', GuruController::class);
+         Route::resource('/mapel', MapelController::class);
+         Route::resource('/jurusan', JurusanController::class);
+         Route::resource('/kelas' , KelasController::class);
+         Route::resource('/tahun_ajaran',TahunAjaranController::class);
+         //Hakases Hanya Untuk Guru
+    })->middleware('UserAkses:admin');
+
     Route::group(['namespace'=>'App\Http\Controllers\Guru'] , function(){
-        Route::get('settings/guru',[DashboardGuru::class,'profile']);
-        Route::get('agenda/guru' ,[DashboardGuru::class,'index']);
+        Route::get('dashboard/guru' ,[DashboardGuru::class,'index']);
+        Route::resource('setings/guru', ProfileController::class);
         Route::resource('agenda/mapel', MapelGuruController::class);
+        Route::resource('agenda/pengajaran', AgendaController::class);
     })->middleware('UserAkses:guru');   
 });
+
 
 // Halamana
 Route::get('/home',function(){return redirect('/agenda');});

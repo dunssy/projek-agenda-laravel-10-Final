@@ -17,28 +17,28 @@ class JurusanSeeder extends Seeder
 
         $userData = [
            [
-            'jurusan'=>'Rekayasa Perangkat Lunak'
+            'jurusan'=>'RPL(1)'
            ],
            [
-            'jurusan'=>'Teknik Komputer dan Jaringan'
+            'jurusan'=>'RPL(2)'
            ],
            [
-            'jurusan'=>'Teknik Sepeda Motor'
+            'jurusan'=>'TO(1)'
            ],
            [
-            'jurusan'=>'Agriculture Tanaman'
+            'jurusan'=>'TO(2)'
            ],
            [
-            'jurusan'=>'Teknik Sipil'
+            'jurusan'=>'AT(1)'
            ],
            [
-            'jurusan'=>'Teknik Kendaraan Ringan'
+            'jurusan'=>'AT(2)'
            ],
            [
-            'jurusan'=>'Teknik Alat Berat'
+            'jurusan'=>'TKJ(1)'
            ],
            [
-            'jurusan'=>'Teknik Elektro'
+            'jurusan'=>'TKJ(2)'
            ],
         ];
 

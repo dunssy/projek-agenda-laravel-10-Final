@@ -13,10 +13,5 @@ class Mapel extends Model
     protected $fillable = ['mapel'];
     protected $guarded = 'id_mapel';
 
-    public function gmapel(){
-        return $this->hasMany(G_mapel::class);
-    }
-
-
-  
+    
 }
