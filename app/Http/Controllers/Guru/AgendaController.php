@@ -17,6 +17,7 @@ class AgendaController extends Controller
      */
     public function index() 
     {
+       
         $data = G_mapel::with('mapel','kelas','jurusan')->where('id_user',Auth::id())->get();
         return view('client.agenda_pengajaran.index',['title'=>'agenda pengajaran'],compact('data'));
     }
@@ -27,8 +28,7 @@ class AgendaController extends Controller
     public function create()
     { 
 
-       
-
+       return view('client.agenda_pengajaran.create',['title'=>'Buat Jurnal']);
     }
 
     /**
@@ -36,26 +36,20 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-
-        $user = Auth::user()->id_user;
+        $g_mapel = G_mapel::where('id');
         $request->validate([
-          
+            ''
         ],[
-            'mapel.required'=>'Mapel Harap diisi',
-            'kelas.required'=>'Kelas Harap diisi',
-            'jurusan.required'=>'Jurusan Harap diisi'
+
+            'id_g_mapel'=>$g_mapel->id,
+            'id_user'=>Auth::user()->id_user,
+            'id_mapel'=>$g_mapel->id_mapel,
+            'id_kelas'=>$g_mapel->kelas,
+            'id_jurusan'=>$g_mapel->jurusan,
         ]);
+    
 
-        $data = [
-            'id_user'=>$user,
-            'id_g_mapel'=>$request->input('id_g_mapel'),
-            'id_mapel'=>$request->input('mapel'),
-            'id_kelas'=>$request->input('kelas'),
-            'id_jurusan'=>$request->input('jurusan'),
-        ];
-
-        Agenda::create($data);
-        return redirect('agenda/pengajaran')->with('info', 'Data berhasil Ubah!');
+       Agenda::create();
     }
 
     /**
@@ -64,10 +58,6 @@ class AgendaController extends Controller
     public function show(string $id)
     {
 
-           // Menampilkan table dari Mapel
-           $data = G_mapel::where($id,'id');
-           $agenda = Agenda::with('mapel','jurusan','kelas')->where($id . 'id');
-             return view('client.agenda_pengajaran.view' , ['title'=>'Penambahan Jurnal'],compact('data','agenda'));
     }
 
     /**
@@ -75,7 +65,12 @@ class AgendaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // $mapel = Mapel::all();
+        // $kelas = kelas::all();
+        // $jurusan = Jurusan::all();
+        $data = [G_mapel::where('id',$id)->with('mapel','jurusan','kelas')];
+        return $data;
+        // return view('client.agenda_pengajaran.view',['title'=>'Jurnal Ajar'],compact('data','mapel','kelas','jurusan'));
     }
 
     /**

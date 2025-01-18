@@ -26,11 +26,11 @@
         @foreach ($data as $item)
         <tbody>
         <td>{{$loop->iteration}}</td>
-        <td>{{$item ->mapel->mapel}}</td>
-        <td>{{$item -> kelas->kelas}}</td>
-        <td>{{$item ->jurusan->jurusan }}</td>
+        <td>{{$item->mapel->mapel}}</td>
+        <td>{{$item-> kelas->kelas}}</td>
+        <td>{{$item->jurusan->jurusan }}</td>
         <td>
-          <a href="{{url('agenda/pengajaran/'  . $item->id )}}" class="btn btn-primary">View</a>
+          <a href="{{url('agenda/pengajaran/'.$item->id .'/edit')}}" class="btn btn-primary">View</a>
         </td>
       </tbody>
       @endforeach

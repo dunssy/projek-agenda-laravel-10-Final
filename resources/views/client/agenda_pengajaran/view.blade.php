@@ -15,12 +15,14 @@
                 <th>Jurusan</th>
                 <th>Kelas</th>
               </tr>
-            </thead>
+            </thead>     
             <tbody>    
-              <td>{{$data->id_mapel}}</td>
+            @foreach ($data as $item)       
+              <td>{{$item->id_mapel}}<span>{{$mapel-mapel}}</span></td>
               <td>{{$item->id_kelas}}</td>
               <td>{{$item->id_jurusan}}</td>
-          </tbody>
+            @endforeach
+            </tbody>
           </table>
         </div>
       </div>
