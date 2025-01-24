@@ -27,12 +27,13 @@
                         <input type="text" class="form-control" name="nomorguru" id="floatingInput" value="{{$data->nip}}">
                         <label for="nomorguru">Nip Guru</label>
                     </div>
-                    <div class="mb-3">
-                        <select name="jkguru" id="jkguru" class="form-control">
+                    <div class="form-floating mb-3">
+                        <select name="jkguru" class="form-select">
                             <option value="{{$data->kelamin}}">Pilih Jenis Kelamin..</option>
                             <option value="pria" {{ ($data->kelamin =='pria') ? 'selected' : '' }}>Pria</option>
                             <option value="wanita" {{ ($data->kelamin =='wanita') ? 'selected' : '' }}>Wanita</option>
                         </select>
+                        <label for="jkguru">Jenis Kelamin</label>
                     </div>
                     <div class="form-floating mb-3">
                         <textarea name="alamatguru" id="alamatguru" cols="10" rows="15" class="form-control">{{$data->alamat}}</textarea>
@@ -50,16 +51,17 @@
                         <input type="date" id="tanggal" name="tanggal" class="form-control" value="{{$data->tgl}}">
                         <label for="tanggal">Tanggal Lahir</label>
                     </div>
-                    <div class="mb-3">
-                        <select name="agamaguru" id="agamaguru" class="form-control">
+                    <div class="form-floating mb-3">
+                        <select name="agamaguru" class="form-select">
                             <option value="{{$data->agama}}" disable>Pilih Agama...</option>
                             <option value="islam" {{ ($data->agama=='islam') ? 'selected' : '' }}>Islam</option>
                             <option value="kristen" {{ ($data->agama=='kristen') ? 'selected' : '' }}>Kristen</option>
                             <option value="katolik" {{ ($data->agama=='katolik') ? 'selected' : '' }}>Katolik</option>
-                            <option value="konghucu" {{ ($data->agama=='konghucu') ? 'selected' : '' }}>Konghuvu==cu</option>
-                            <option value="hindu" {{ ($data->agama=='hindu') ? 'selected' : '' }}>Islam</option>
-                            <option value="budha" {{ ($data->agama=='budha') ? 'selected' : '' }}>Islam</option>
+                            <option value="konghucu" {{ ($data->agama=='konghucu') ? 'selected' : '' }}>Konghucu</option>
+                            <option value="hindu" {{ ($data->agama=='hindu') ? 'selected' : '' }}>Hindu</option>
+                            <option value="budha" {{ ($data->agama=='budha') ? 'selected' : '' }}>Budha</option>
                         </select>
+                        <label for="agamaguru">Agama</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" name="username" class="form-control" id="username" value="{{$data->username}}">
@@ -69,24 +71,29 @@
                         <input type="email" name="emailguru" class="form-control" id="emailguru" value="{{$data->email}}">
                         <label for="emailguru">Email</label>
                     </div>
-                    <div class="mb-3">
-                        <select name="level" id="level" class="form-control">
-                            <option value="{{$data->level}}">Anda Sebagai...</option>
-                        <option value="admin" {{ ($data->level=='admin') ? 'selected' : '' }}>Admin</option>
-                        <option value="guru" {{ ($data->level=='guru') ? 'selected' : '' }}>Guru</option>
+                    <div class="form-floating mb-3">
+                        <select name="level" class="form-select" aria-label="Floating label select example">
+                            <option value="{{$data->level}}"></option>
+                            <option value="admin" {{ ($data->level=='admin') ? 'selected' : '' }}>Admin</option>
+                            <option value="guru" {{ ($data->level=='guru') ? 'selected' : '' }}>Guru</option>
                         </select>
+                        <label for="level" class="form-floating">Pilih Level</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" name="passguru" class="form-control" id="password" placeholder="New Password">
+                        <input type="password" name="passguru" class="form-control">
                         <label for="passguru">Password</label>
                     </div>
                     @if ($data->foto)
                         <div class="mb-3">
-                            <img src="{{asset('foto/'. $data->foto)}}" alt="" width="80" height="50">
+                            <img src="{{asset('foto/'. $data->foto)}}" alt="" height="100" class="rounded-circle shadow">
                         </div>
                     @endif
                     <div class="mb-3">  
                         <input type="file" name="fotoguru" class="form-control" id="fotoguru" value="{{$data->foto}}">
+                    </div>
+                    <div class="mb-3">
+                        <input type="radio" value="Bola" name="hobis"/>BOLA
+                         <input type="radio" value="Futsal" name="hobis"/> FUTSAL
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary" type="submit" name="save">simpan</button>

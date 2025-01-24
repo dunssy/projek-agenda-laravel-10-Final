@@ -112,7 +112,7 @@
                         </select>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" name="passguru" class="form-control" id="password" value="{{$data->password }}">
+                        <input type="password" name="passguru" class="form-control" id="password" >
                         <label for="passguru">Password</label>
                     </div>
                     <div class="mb-3">  

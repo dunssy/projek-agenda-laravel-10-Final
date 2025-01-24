@@ -10,7 +10,7 @@
             <div class="sidebar-logo">
                 <a href="#">SMKN AGENDA</a>
             </div>
-        </div>
+        </div>  
         <ul class="sidebar-nav">
             <li class="sidebar-item">
                 <a href="/dashboard" class="sidebar-link">
@@ -43,7 +43,7 @@
                     </ul>
             </li>
             <li class="sidebar-item">
-                <a href="{{route('guru.index')}}" class="sidebar-link collapsed has-dropdown">
+                <a href="/guru" class="sidebar-link collapsed has-dropdown">
                     <i><ion-icon name="folder-open"></ion-icon></i></i>
                     <span>Manage User</span>
                 </a>
@@ -68,7 +68,7 @@
             </li> --}}
         </ul>
         <div class="sidebar-footer">
-                <a href="https://www.instagram.com/midun_ahmad17/" class="sidebar-link bg-danger">
+                <a href="https://www.instagram.com/midun_ahmad17/" class="sidebar-link bg-primary">
                     <i><ion-icon name="logo-instagram" width="50%"></ion-icon></i><span>midun_ahmad17</span>
                 </a>
         </div>

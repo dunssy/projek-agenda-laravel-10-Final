@@ -6,7 +6,7 @@
       <!-- Profile Content -->
       <!-- Profile Sidebar -->
       <div class="col-md-4">
-          <div class="card">
+          <div class="card shadow">
               <div class="card-body text-center">
                   <img src="{{ asset('foto/'. Auth::user()->foto)}}" alt="Profile Picture" class="rounded-circle mb-3" width="150" >
                   <h4>{{Auth::user()->username}}</h4>
@@ -27,7 +27,7 @@
           </div>
       </div>
       <div class="col-md-8">
-          <div class="card">
+          <div class="card shadow">
             <div class="card-header bg-primary">
             </div>
             <div class="card-body">
@@ -112,7 +112,7 @@
                         </select>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" name="passguru" class="form-control" id="password" value="{{$data->password }}">
+                        <input type="password" name="passguru" class="form-control" id="password">
                         <label for="passguru">Password</label>
                     </div>
                     <div class="mb-3">  

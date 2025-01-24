@@ -73,12 +73,11 @@ class TahunAjaranController extends Controller
     {
         $request->validate(
             [
-                'nama'=>'required|max:10|min:10'
+                'nama'=>'required'
             ],
             [
                 'nama.required'=>'nama tidak boleh kosong',
-                'nama.max'=>'nama tidak boleh lebih',
-                'nama.min'=>'nama tidak boleh kurang'
+               
             ]);
     
             $data = [

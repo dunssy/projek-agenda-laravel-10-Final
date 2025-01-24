@@ -36,7 +36,7 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama'=>'required|max:200|min:3'
+            'nama'=>'required|max:200|min:2'
         ],
         [
             'nama.required'=>'nama tidak boleh kosong',
@@ -79,7 +79,7 @@ class JurusanController extends Controller
         //
         $request->validate(
             [
-                'nama'=>'required|max:300|min:3'
+                'nama'=>'required|max:300|min:2'
             ],
             [
                 'nama.required'=>'nama tidak boleh kosong',

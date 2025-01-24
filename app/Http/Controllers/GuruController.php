@@ -22,7 +22,7 @@ class GuruController extends Controller
             $data = User::where('username','like','%'.$search.'%')->orWhere('nip','like','%' . $search . '%')->orWhere('name','like','%' . $search . '%')->paginate(1);
         }else{
         //jika kolom pencarian kosong tampilkan data
-        $data = User::orderBy('nip','asc')->paginate(5);
+        $data = User::orderBy('id_user','desc')->paginate(5);
         }
         
         return view('guru.index',['title'=>'Kelola Guru','halaman'=>'Data Guru'])->with('data',$data);
@@ -52,14 +52,14 @@ class GuruController extends Controller
             'jkguru'=>'required',
             'alamatguru'=>'required',
             'telponguru'=>'required|numeric|min:3',
-            'username'=>'required',
+            'username'=>'nullable',
             'passguru'=>'required',
             'tempat'=>'required',
             'tanggal'=>'required',
             'agamaguru'=>'required',
             'emailguru'=>'required',
             'fotoguru'=>'required',
-            'level'=>'required'
+            'level'=>'required',
         ],
         [
             'namaguru.required'=>'Nama tidak boleh kosong',
@@ -117,13 +117,10 @@ class GuruController extends Controller
      */
     public function show(string $id)
     {
-        $data = User::where('id_user' , $id)->first();
-        return view('guru.show')->with('data',$data);
+       
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(string $id)
     {
         $data = User::where('id_user',$id)->first();
@@ -145,7 +142,7 @@ class GuruController extends Controller
             'alamatguru'=>'required',
             'telponguru'=>'required|numeric|min:3',
             'username'=>'required',
-            'passguru'=>'required',
+            'passguru'=>'nullable|min:6',
             'tempat'=>'required',
             'tanggal'=>'required',
             'agamaguru'=>'required',
@@ -168,7 +165,7 @@ class GuruController extends Controller
             'fotoguru.mimes'=>'yang anda upload bukan foto',
             'level.required'=>'Pilih Level',
             'username.required'=>'Username Wajib diisi',
-            'passguru.required'=>'Password Wajib diisi'
+        
 
              
         ]
@@ -192,16 +189,15 @@ class GuruController extends Controller
         $d->foto = $fileName;
     }
         // Hashing password
-            $password = $request->input('passguru');
-            $hashedPassword = Hash::make($password);
-
+        $d->password = $request->input('passguru') 
+        ? Hash::make($request->input('passguru')) 
+        : $d->password;
         // MENGIRIM SEBUAH DATA YG TELAH SUDAH TERVALIDASI KEDALAM DATABASE
         $d->name =  $request->input('namaguru');
         $d->nip = $request->input('nomorguru');
         $d->kelamin = $request->input('jkguru');
         $d->alamat = $request->input('alamatguru');
         $d->username = $request->input('username');
-        $d->password = $hashedPassword;
         $d->tempat = $request->input('tempat');
         $d->tgl = $request->input('tanggal');
         $d->agama = $request->input('agamaguru');
@@ -228,3 +224,4 @@ class GuruController extends Controller
         return redirect('guru')->with('warning','Nama '.$data->name);
     }
 }
+   

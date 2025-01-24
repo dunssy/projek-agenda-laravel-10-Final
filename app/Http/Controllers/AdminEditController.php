@@ -65,7 +65,7 @@ class AdminEditController extends Controller
             'alamatguru'=>'required',
             'telponguru'=>'required|numeric|min:3',
             'username'=>'required',
-            'passguru'=>'required',
+            'passguru'=>'nullable|min:8',
             'tempat'=>'required',
             'tanggal'=>'required',
             'agamaguru'=>'required',
@@ -88,7 +88,7 @@ class AdminEditController extends Controller
             'fotoguru.mimes'=>'yang anda upload bukan foto',
             'level.required'=>'Pilih Level',
             'username.required'=>'Username Wajib diisi',
-            'passguru.required'=>'Password Wajib diisi'
+           
 
              
         ]
@@ -112,16 +112,15 @@ class AdminEditController extends Controller
         $d->foto = $fileName;
     }
         // Hashing password
-            $password = $request->input('passguru');
-            $hashedPassword = Hash::make($password);
-
+        $d->password = $request->input('passguru') 
+        ? Hash::make($request->input('passguru')) 
+        : $d->password;
         // MENGIRIM SEBUAH DATA YG TELAH SUDAH TERVALIDASI KEDALAM DATABASE
         $d->name =  $request->input('namaguru');
         $d->nip = $request->input('nomorguru');
         $d->kelamin = $request->input('jkguru');
         $d->alamat = $request->input('alamatguru');
         $d->username = $request->input('username');
-        $d->password = $hashedPassword;
         $d->tempat = $request->input('tempat');
         $d->tgl = $request->input('tanggal');
         $d->agama = $request->input('agamaguru');

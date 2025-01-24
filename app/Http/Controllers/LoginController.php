@@ -23,7 +23,7 @@ class LoginController extends Controller
         'password.required'=>'Password Harus di isi'
        ]
        );
-       // Menyipan data dari validate  
+       // Menyimpan data dari validate  
        $infologin = [
         'email'=> $request->email,
         'password'=>$request->password

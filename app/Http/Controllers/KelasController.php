@@ -27,7 +27,7 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama'=>'required|max:200|min:3'
+            'nama'=>'required|max:200|min:1'
         ],
         [
             'nama.required'=>'nama tidak boleh kosong',
@@ -38,7 +38,7 @@ class KelasController extends Controller
 
     $data = [
         'kelas'=>$request->input('nama')
-        ];
+    ];
 
     kelas::create($data);
     return redirect('kelas')->with('success','kelas');
@@ -70,12 +70,12 @@ class KelasController extends Controller
         //
         $request->validate(
             [
-                'nama'=>'required|max:300|min:3'
+                'nama'=>'required|max:20|min:2'
             ],
             [
-                'nama.required'=>'nama tidak boleh kosong',
-                'nama.max'=>'nama tidak boleh lebih',
-                'nama.min'=>'nama tidak boleh kurang'
+                'nama.required'=>'Kelastidak boleh kosong',
+                'nama.max'=>'melebihi Karakter',
+                'nama.min'=>'karakter Kurang'
             ]);
     
             $data = [

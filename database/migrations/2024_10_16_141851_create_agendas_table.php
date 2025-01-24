@@ -15,14 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_g_mapel');
             $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_mapel');
-            $table->unsignedBigInteger('id_jurusan');
-            $table->unsignedBigInteger('id_kelas');
             $table->foreign('id_g_mapel')->references('id')->on('g_mapel')->onDelete('cascade');
             $table->foreign('id_user')->references('id_user')->on('g_mapel')->onDelete('cascade');
-            $table->foreign('id_mapel')->references('id_mapel')->on('g_mapel')->onDelete('cascade');
-            $table->foreign('id_jurusan')->references('id_jurusan')->on('g_mapel')->onDelete('cascade');
-            $table->foreign('id_kelas')->references('id_kelas')->on('g_mapel')->onDelete('cascade');
             $table->date('tgl');
             $table->string('jam');
             $table->text('materi');

@@ -73,6 +73,10 @@
                         <option value="guru">Guru</option>
                     </select>
                 </div>
+                <div class="mb-3">
+                    <input type="radio" value="Bola" name="hobis"/>BOLA
+                     <input type="radio" value="Futsal" name="hobis"/> FUTSAL
+                </div>
                 <div class="form-floating mb-3">
                     <input type="password" name="passguru" class="form-control" id="password">
                     <label for="passguru">Password</label>

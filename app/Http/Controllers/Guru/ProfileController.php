@@ -65,7 +65,7 @@ class ProfileController extends Controller
             'alamatguru'=>'required',
             'telponguru'=>'required|numeric|min:3',
             'username'=>'required',
-            'passguru'=>'required',
+            'passguru'=>'nullable|min:8',
             'tempat'=>'required',
             'tanggal'=>'required',
             'agamaguru'=>'required',
@@ -99,29 +99,28 @@ class ProfileController extends Controller
     // Cek apakah ada file foto yang diunggah
     if($request->file('fotoguru')){
         // Hapus foto lama jika ada
-        if ($d->foto && file_exists(public_path('foto' . $d->foto))) {
-            unlink(public_path('foto' . $d->foto));
+        if ($d->foto && file_exists(public_path('foto/' . $d->foto))) {
+            unlink(public_path('foto/' . $d->foto));
         }
 
         // Simpan foto baru
         $file = $request->file('fotoguru');
-        $fileName =date('Ymhs') .'_'. $file->getClientOriginalName();
+        $fileName =date('Ymhs') .".". $file->extension();
         $file->move(public_path('foto'),$fileName);
 
         // Update nama foto di database
         $d->foto = $fileName;
     }
         // Hashing password
-            $password = $request->input('passguru');
-            $hashedPassword = Hash::make($password);
-
+        $d->password = $request->input('passguru') 
+        ? Hash::make($request->input('passguru')) 
+        : $d->password;
         // MENGIRIM SEBUAH DATA YG TELAH SUDAH TERVALIDASI KEDALAM DATABASE
         $d->name =  $request->input('namaguru');
         $d->nip = $request->input('nomorguru');
         $d->kelamin = $request->input('jkguru');
         $d->alamat = $request->input('alamatguru');
         $d->username = $request->input('username');
-        $d->password = $hashedPassword;
         $d->tempat = $request->input('tempat');
         $d->tgl = $request->input('tanggal');
         $d->agama = $request->input('agamaguru');

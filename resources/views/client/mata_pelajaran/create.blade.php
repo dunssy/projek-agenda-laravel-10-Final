@@ -25,8 +25,8 @@
           <form action="/agenda/mapel" method="POST">
            @csrf
            <div class="form-floating mb-3">
-                <select name="mapel" id="mapel" class="form-control">
-                    <option value="">Pilih Mapel...</option>
+                <select name="mapel" id="mapel" class="form-control">\
+                   <option value="">Pilih Mapel...</option>
                     @foreach ($mapel as $mapel)
                     <option value="{{$mapel->id_mapel}}">{{$mapel->mapel}}</option>
                     @endforeach

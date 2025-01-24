@@ -16,9 +16,11 @@ class UserAkses
      */
     public function handle(Request $request, Closure $next , $level): Response
     {
-        if(Auth()->user()->level == $level){
-            return $next($request);
+        // Cek apakah user memiliki peran tertentu
+        if (Auth()->user()->level != $level) {
+            return redirect('home'); // Jika peran tidak sesuai, arahkan ke halaman home
         }
-        return redirect('dashboard');
+        return $next($request); // Jika sesuai, lanjutkan request
+        
     }
 }

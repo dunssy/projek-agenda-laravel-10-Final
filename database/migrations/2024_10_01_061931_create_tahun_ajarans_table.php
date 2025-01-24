@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tahun_ajaran', function (Blueprint $table) {
             $table->id('id_ajaran');
             $table->string('ajaran');
+            $table->string('status');
             $table->timestamps();
         });
     }

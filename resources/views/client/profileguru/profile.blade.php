@@ -4,7 +4,7 @@
     <div class="row">
         <!-- Profile Sidebar -->
         <div class="col-md-4">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-body text-center">
                     <img src="{{ asset('foto/'. Auth::user()->foto)}}" alt="Profile Picture" class="rounded-circle mb-3" width="150" >
                     <h4>{{Auth::user()->username}}</h4>
@@ -27,7 +27,7 @@
     
         <!-- Profile Content -->
         <div class="col-md-8">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header bg-primary">
                 </div>
                 <div class="card-body">

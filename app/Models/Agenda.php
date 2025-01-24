@@ -10,21 +10,11 @@ class Agenda extends Model
     use HasFactory;
     protected $table = 'agenda';
     protected $primaryKey = 'id';
-    protected $fillable = ['id_g_mapel','id_user','id_mapel','id_kelas','id_jurusan','tgl','jam','materi','absen','keterangan'];
+    protected $fillable = ['id_g_mapel','id_user','tgl','jam','materi','absen','keterangan'];
 
 
     public function g_mapel(){
-        return $this->belongsTo(G_mapel::class,'id');
-    }
-    public function mapel(){
-        return $this->belongsTo(G_mapel::class,'id_mapel');
-    }
+        return $this->belongsTo(G_mapel::class,'id_g_mapel');
+    } 
     
-    public function kelas(){
-        return $this->belongsTo(G_mapel::class,'id_kelas');
-    }
-
-    public function jurusan(){
-        return $this->belongsTo(G_mapel::class,'id_jurusan');
-    }
 }

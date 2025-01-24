@@ -27,7 +27,7 @@
             @csrf
             <div class="form-floating mb-3">
                   <select name="mapel" id="mapel" class="form-control">
-                      <option value="" disabled>{{$data->mapel->mapel}}</option>
+                      <option value="">{{$data->mapel->mapel}}</option>
                       @foreach ($mapel as $mapel)
                       <option value="{{$mapel->id_mapel}}">{{$mapel->mapel}}</option>
                       @endforeach
