@@ -13,9 +13,8 @@ use App\Http\Controllers\TahunAjaranController;
 use App\Http\Controllers\Guru\AgendaController;
 use App\Http\Controllers\Guru\DashboardGuru;
 use App\Http\Controllers\Guru\MapelGuruController;
+use App\Http\Controllers\Guru\PrintController;
 use App\Http\Controllers\Guru\ProfileController;
-use App\Http\Controllers\Guru\FileUploadController;
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UserAkses;
 use Illuminate\Routing\ViewController as RoutingViewController;
@@ -61,7 +60,7 @@ Route::middleware(['auth', 'UserAkses:guru'])->group(function(){
                 Route::resource('setings/guru', ProfileController::class);
                 Route::resource('agenda/mapel', MapelGuruController::class);
                 Route::resource('agenda/pengajaran' , AgendaController::class);
-                Route::resource('agenda/file',FileUploadController::class);
+                Route::get('laporan/agenda/{id}',[PrintController::class,'generatePdf']);
                 Route::get('/home',function(){return redirect('dashboard/guru');});
            });
 });   

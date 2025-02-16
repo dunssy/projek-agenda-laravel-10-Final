@@ -1,129 +1,113 @@
 @extends('layout.sidebar')
 @section('main')
-<div class="alert alert-success alert-dismissible fade show overflow-auto" style="max-height: 3000px;" role="alert">
-    <strong>Selamat</strong> Datang<strong> {{Auth::user()->username}}</strong> Pada projek agenda Ini.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-
     <div class="row">
-        <div class="col-md-12">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Dashboard</a>
                 </li>
             </ul>
-        </div>
-    </div>
-    <div class="container mt-4">
-            <div class="row mt-3">
-        <!-- Left side: Information Box -->
-        <div class="col-md-6">
-            <div class="info-box">
-                <h5>Informasi Terkini:</h5>
-            {{-- Carsouel --}}
-            <div class="card">
-                <div class="card-body">
-                    <div id="carouselExampleIndicators" class="carousel slide">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <div class="container mt-4">
+                <div class="row">
+                    <!-- New Orders -->
+                    <div class="col-md-3">
+                        <div class="card text-white bg-primary mb-3 shadow">
+                            <div class="card-body">
+                                @php
+                                 $skrg = date('Y-m-d');
+                                 $agenda = DB::table('agenda')->where('tgl', $skrg)->count();     
+                                @endphp
+                                <h5 class="card-title">{{$agenda}}</h5>
+                                <p class="card-text text-white">Agenda Hari Ini</p>
+                            </div>
+                            <div class="card-footer text-white">
+                                <a href="#" class="text-white">More info</a>
+                            </div>
                         </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img src="{{asset('img/1.jpg')}}" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item active">
-                            <img src="{{asset('img/2.jpg')}}" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item active">
-                            <img src="{{asset('img/1.jpg')}}" class="d-block w-100" alt="...">
-                          </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
-                      </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Right side: Cards -->
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <div class="card bg-success">
-                        <div class="card-body">
+                    
+                    <!-- Bounce Rate -->
+                    <div class="col-md-3">
+                        <div class="card text-white bg-success mb-3 shadow">
+                            <div class="card-body">
+                                @php
+                                $totalAgenda = DB::table('agenda')->count();
+                                @endphp
+                                <h5 class="card-title">{{$totalAgenda}}</h5>
+                                <p class="card-text text-white">Semua Agenda</p>
+                            </div>
+                            <div class="card-footer text-white">
+                                <a href="#" class="text-white">More info <ion-icon name="arrow-forward"></ion-icon></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Guru-->
+                    <div class="col-md-3">
+                        <div class="card text-white bg-warning mb-3 shadow">
+                            <div class="card-body">
                             @php
-                            $skrg = date('Y-m-d');
-                            $agenda = DB::table('Agenda')->where('tgl', $skrg)->count();
+                                $user = DB::table('users')->count();
                             @endphp
-                            <div class="card-header">Agenda Hari ini</div>
-                            <h2>{{$agenda}}</h2>
-                        
+                                <h5 class="card-title">{{$user}}</h5>
+                                <p class="card-text text-white">Guru</p>
+                            </div>
+                            <div class="card-footer text-white">
+                                <a href="/guru" class="text-white">More info <ion-icon name="arrow-forward"></ion-icon></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="card bg-primary">
-                        <div class="card-body">
-                            <div class="card-header">Semua Agenda</div>
-                            @php
-                                $totalUsers = DB::table('Agenda')->count();
-                            @endphp
-                            <h2>{{$totalUsers}}</h2>
+                    
+                    <!-- Mapel -->
+                    <div class="col-md-3">
+                        <div class="card text-white bg-info mb-3 shadow" >
+                            <div class="card-body">
+                                @php
+                                    $mapel = DB::table('mapel')->count();
+                                @endphp
+                                <h5 class="card-title">{{$mapel}}</h5>
+                                <p class="card-text text-white">Mapel</p>
+                            </div>
+                            <div class="card-footer text-white">
+                                <a href="/mapel" class="text-white">More info <ion-icon name="arrow-forward"></ion-icon></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="card bg-warning">
-                        <div class="card-body">
-                            <div class="card-header"><a href="/guru">Jumlah Guru</a></div>
-                            @php
-                                $totalUsers = DB::table('users')->count();
-                            @endphp
-                            <h2>{{$totalUsers}}</h2>
+                    {{-- Kelas --}}
+                    <div class="col-md-3">
+                        <div class="card text-white bg-info mb-3 shadow " >
+                            <div class="card-body">
+                                @php
+                                    $kelas = DB::table('kelas')->count();
+                                @endphp
+                                <h5 class="card-title">{{$kelas}}</h5>
+                                <p class="card-text text-white">Kelas</p>
+                            </div>
+                            <div class="card-footer text-white">
+                                <a href="/kelas" class="text-white">More info <ion-icon name="arrow-forward"></ion-icon></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="card bg-warning">
-                        <div class="card-body">
-                            <div class="card-header"><a href="/kelas">Jumlah Kelas</a></div>
-                            @php
-                                $totalUsers = DB::table('kelas')->count();
-                            @endphp
-                            <h2>{{$totalUsers}}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="card bg-warning">
-                        <div class="card-body">
-                            <div class="card-header"><a href="/jurusan">Jumlah Jurusan</a></div>
-                            @php
-                                $totalUsers = DB::table('jurusan')->count();
-                            @endphp
-                            <h2>{{$totalUsers}}</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="card bg-danger">
-                        <div class="card-body">
-                            <div class="card-header">File Perangkat</div>
-                            <h2>11</h2>
+                    {{-- Jurusan --}}
+                    <div class="col-md-3">
+                        <div class="card text-white bg-info mb-3 shadow " >
+                            <div class="card-body">
+                                @php
+                                    $jurusan = DB::table('jurusan')->count();
+                                @endphp
+                                <h5 class="card-title">{{$jurusan}}</h5>
+                                <p class="card-text text-white">Jurusan</p>
+                            </div>
+                            <div class="card-footer text-white">
+                                <a href="/jurusan" class="text-white">More info <ion-icon name="arrow-forward"></ion-icon></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
     </div>
+   
 
+   
+
+    
 @endsection

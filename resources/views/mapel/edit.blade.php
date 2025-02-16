@@ -21,7 +21,7 @@
             @csrf
                 <div class="mb-2">
                     <label for="nama">Nama</label>
-                    <input type="text" class="form-control" name="nama"  id="nama" value="{{$data->mapel}}">
+                    <input type="text" class="form-control col-4" name="nama"  id="nama" value="{{$data->mapel}}">
                 </div>
               
                 <div class="d-grid gap-2 d-md-block pt-3">

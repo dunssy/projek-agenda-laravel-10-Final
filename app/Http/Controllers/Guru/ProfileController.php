@@ -128,7 +128,7 @@ class ProfileController extends Controller
         $d->level = $request->input('level');
         $d->save();
   
-       return redirect('setings/guru')->with('info','Berhasil di');
+       return redirect('setings/guru')->with('success','Berhasil di Ubah');
     }
 
     /**

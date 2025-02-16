@@ -19,10 +19,23 @@
             <form action="{{ url( 'tahun_ajaran/' . $data->id_ajaran )}}" method="POST">
             @method('PUT')
             @csrf
-                <div class="mb-2">
-                    <label for="nama">Nama</label>
-                    <input type="text" class="form-control" name="nama"  id="nama"  value="{{$data->ajaran}}">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" name="nama"  id="nama"  value="{{$data->ajaran}}">
+                        <label for="">Nama</label>
+                    </div>
+                    <div class="form-floating">
+                        <select name="status" class="form-select" id="status">
+                            <option value="{{$data->status}}">Pilih...</option>    
+                            <option value="Y" {{ ($data->status =='Y') ? 'selected' : '' }}>Aktif</option>
+                            <option value="T" {{ ($data->status =='T') ? 'selected' : '' }}>Non Aktif</option>
+                        </select>
+                        <label for="status">Status</label>
+                    </div>
                 </div>
+            </div>
+                
                 <div class="d-grid gap-2 d-md-block pt-3">
                     <button class="btn btn-primary" type="submit" name="save">Update</button>
                 </div>

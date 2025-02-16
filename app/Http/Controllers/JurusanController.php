@@ -50,7 +50,7 @@ class JurusanController extends Controller
         ];
 
     Jurusan::create($data);
-    return redirect('jurusan')->with('success','Jurusan');
+    return redirect('jurusan')->with('success','Jurusan Berhasil Ditambahkan');
     }
 
     /**
@@ -92,7 +92,7 @@ class JurusanController extends Controller
             ];
     
             Jurusan::where('id_jurusan' , $id )->update($data);
-            return redirect('jurusan')->with('info','Jurusan Berhasil');
+            return redirect('jurusan')->with('success','Jurusan Berhasil Diubah');
     }
 
     /**
@@ -103,7 +103,7 @@ class JurusanController extends Controller
         //
         $data = Jurusan::where('id_jurusan' , $id)->first();
         Jurusan::where('id_jurusan' , $id)->delete();
-        return redirect('jurusan')->with('warning','Jurusan '.$data->jurusan);
+        return redirect('jurusan')->with('success','Jurusan '.$data->jurusan.' Berhasil Dihapus');
 
     }
 }

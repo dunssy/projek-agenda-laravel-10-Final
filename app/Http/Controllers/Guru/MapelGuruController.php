@@ -115,7 +115,7 @@ class MapelGuruController extends Controller
         ];
 
         G_mapel::where('id',$id)->update($data);
-        return redirect('agenda/mapel')->with('info', 'Data berhasil');   
+        return redirect('agenda/mapel')->with('success', 'Data berhasil');   
     }
 
     /**
@@ -124,6 +124,6 @@ class MapelGuruController extends Controller
     public function destroy(string $id)
     {
         G_mapel::where('id' , $id)->delete();
-        return redirect('agenda/mapel')->with('warning','Data Telah ');
+        return redirect('agenda/mapel')->with('success','Data Telah ');
     }
 }

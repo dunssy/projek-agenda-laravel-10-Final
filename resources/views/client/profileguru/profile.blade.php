@@ -6,7 +6,7 @@
         <div class="col-md-4">
             <div class="card shadow">
                 <div class="card-body text-center">
-                    <img src="{{ asset('foto/'. Auth::user()->foto)}}" alt="Profile Picture" class="rounded-circle mb-3" width="150" >
+                    <img src="{{ asset('foto/'. Auth::user()->foto)}}" alt="Profile Picture" class="rounded-circle mb-3" width="150" style="border-color:red; ">
                     <h4>{{Auth::user()->username}}</h4>
                     <div class="mb-2">
                         <strong>Nama</strong>
@@ -20,7 +20,6 @@
                         <strong>Email</strong>
                         <p>{{Auth::user()->email}}</p>
                     </div>
-                    <a href="https://www.instagram.com/midun_ahmad17/" class="btn btn-primary">Follow</a> 
                 </div>
             </div>
         </div>
@@ -44,7 +43,7 @@
                     <!-- Settings Form -->
                     <form>
                         <div class="mb-3 row">
-                            <label for="name" class="col-sm-2 col-form-label">Name</label>
+                            <label for="name" class="col-sm-2 col-form-label">Username</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="name" placeholder="{{Auth::user()->username}}" disabled>
                             </div>

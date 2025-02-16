@@ -3,7 +3,7 @@
         <a href="/jurusan" class="btn btn-primary mb-3">Kembali</a>
         <div class="card shadow">
             <div class="card-header">
-                <h1>Edit Data</h1>
+                <h4>Edit Data</h4>
             </div>
             <div class="card-body">
                 @if ($errors->any()) 
@@ -21,7 +21,7 @@
             @csrf
                 <div class="mb-2">
                     <label for="nama">Nama</label>
-                    <input type="text" class="form-control" name="nama"  id="nama"  value="{{$data->jurusan}}">
+                    <input type="text" class="form-control col-4" name="nama"  id="nama"  value="{{$data->jurusan}}">
                 </div>
               
                 <div class="d-grid gap-2 d-md-block pt-3">

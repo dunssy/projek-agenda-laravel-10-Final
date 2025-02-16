@@ -1,19 +1,16 @@
 @extends('layout.sidebar')
 @section('main')
+<a href="/guru/create" class=" btn btn-primary btn-sm mb-3"><ion-icon name="person-add"></ion-icon>Tambah Guru</a>      
 <div class="card">
     <div class="card-header">
         <h1 class="card-title text-start">Data Guru</h1>
     </div>
     <div class="card-body shadow">
-    </form>
-    <div class="col-md-1 ml-auto mb-2">
-        <a href="/guru/create" class=" btn btn-success btn-sm"><ion-icon name="person-add"></ion-icon>Tambah Guru</a>      
-    </div>
     <form class="d-flex" method="GET" >
         <input class="form-control me-2" type="search" placeholder="Cari Data User..." name="cari" autofocus >
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form> 
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover ">
                 <thead>
                     <hr>
             </thead>

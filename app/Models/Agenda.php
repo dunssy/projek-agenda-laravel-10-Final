@@ -10,7 +10,7 @@ class Agenda extends Model
     use HasFactory;
     protected $table = 'agenda';
     protected $primaryKey = 'id';
-    protected $fillable = ['id_g_mapel','id_user','tgl','jam','materi','absen','keterangan'];
+    protected $fillable = ['id_g_mapel','id_user','tgl','jam','materi','absen','keterangan','file'];
 
 
     public function g_mapel(){

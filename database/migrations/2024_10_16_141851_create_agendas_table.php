@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('materi');
             $table->string('absen');
             $table->text('keterangan');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

@@ -1,13 +1,12 @@
 @extends('layout.sidebar')
 @section('main')
+
+<a href="/kelas/create" class=" btn btn-primary btn-sm mb-3"><ion-icon name="add-circle"></ion-icon>Tambah kelas</a>
     <div class="card">
         <div class="card-header">
-                <h1 class="card-title text-start">Data kelas</h1>
+                <h4 class="card-title text-start">Data kelas</h4>
             </div>
             <div class="card-body shadow">
-            <div class="col-md-1 ml-auto">
-                <a href="/kelas/create" class=" btn btn-success btn-sm"><ion-icon name="add-circle"></ion-icon>Tambah kelas</a>
-            </div>
             <table class="table table-striped table-hover">
                 <thead>
                     <hr>

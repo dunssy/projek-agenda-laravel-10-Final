@@ -7,8 +7,8 @@
             <button class="toggle-btn" type="button">
                 <i><ion-icon name="menu"></ion-icon></i>
             </button>
-            <div class="sidebar-logo">
-                <a href="#">SMKN AGENDA</a>
+            <div class="sidebar-logo pt-4">
+                <a href="#">AGENDA SKMN COMPRENG</a>
             </div>
         </div>  
         <ul class="sidebar-nav">
@@ -48,18 +48,6 @@
                     <span>Manage User</span>
                 </a>
             </li>   
-            <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed has-dropdown">
-                    <i><ion-icon name="copy"></ion-icon></i></i>
-                    <span>File Perangkat</span>
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed has-dropdown">
-                    <i><ion-icon name="folder-open"></ion-icon></i></i>
-                    <span>Bank Data Agenda</span>
-                </a>
-            </li>
             {{-- <li class="sidebar-item">
                 <a href="{{route('admin.index')}}" class="sidebar-link collapsed has-dropdown">
                     <i><ion-icon name="person-add"></ion-icon></i></i>
@@ -90,8 +78,14 @@
                       {{Auth::user()->username}}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> <!-- dropdown-menu-end agar dropdown ke kanan -->
-                      <li><a class="dropdown-item" href="{{url('settings/' . Auth::user()->id_user .'/edit')}}">Settings</a></li>
-                      <li><a class="dropdown-item" href="/settings">Profile</a></li>
+                      <li><a class="dropdown-item" href="{{url('settings/' . Auth::user()->id_user .'/edit')}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                            <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                          </svg> settings</a></li>
+                      <li><a class="dropdown-item" href="/settings"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                      </svg> Profile</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li>
                         <form onsubmit="return confirm('Yakin keluar akun')" class="d-inline" action="/logout" method="GET">
@@ -112,28 +106,7 @@
                     <li class="breadcrumb-item active" aria-current="page">{{$halaman}}</li>
                   </ol>
             </div>
-        </div>
-        {{-- Tampilkan sebuah pesan jika  --}}
-        
-        @if (Session::get('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>{{Session::get('success')}}</strong> Di Tambahkan.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-        @if (Session::get('info'))
-        <div class="alert alert-info alert-dismissible fade show" role="alert">
-            <strong>{{Session::get('info')}}</strong> Di Ubah.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
-        @if (Session::get('warning'))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>{{Session::get('warning')}}</strong> Berhasil di Hapus
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-       
+        </div>       
             @yield('main')
     
     </div>

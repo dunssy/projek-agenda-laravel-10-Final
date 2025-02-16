@@ -1,13 +1,12 @@
 @extends('layout.sidebar')
 @section('main')
+<a href="mapel/create" class="btn btn-primary mb-3"><ion-icon name="add-circle"></ion-icon>Tambah mapel</a>
+
     <div class="card">
         <div class="card-header">
-                <h1 class="card-title text-start">Data mapel</h1>
+                <h4 class="card-title text-start">Data mapel</h4>
             </div>
             <div class="card-body shadow">
-            <div class="col-md-1 ml-auto mb-3">
-                <a href="mapel/create" class=" btn btn-success btn-sm"><ion-icon name="add-circle"></ion-icon>Tambah mapel</a>
-            </div>
             <form class="d-flex" method="GET" >
                 <input class="form-control me-2" type="search" placeholder="Cari Data Mapel..." name="cari" autofocus >
                 <button class="btn btn-outline-success" type="submit">Search</button>

@@ -1,1 +1,2 @@
-import 'flowbite';
+import 'bootstrap'
+import 'bootstrap-icons/font/bootstrap-icons.json'

@@ -3,7 +3,7 @@
         <a href="/kelas" class="btn btn-primary mb-3">Kembali</a>
         <div class="card shadow">
             <div class="card-header">
-                <h1>Edit Data</h1>
+                <h4>Edit Data</h4>
             </div>
             <div class="card-body">
                 @if ($errors->any()) 
@@ -20,7 +20,7 @@
             @method('PUT')
             @csrf
                 <div class="mb-2">
-                    <label for="nama">Nama</label>
+                    <label for="nama">Tingkat</label>
                     <input type="text" class="form-control" name="nama"  id="nama"  value="{{$data->kelas}}">
                 </div>
               

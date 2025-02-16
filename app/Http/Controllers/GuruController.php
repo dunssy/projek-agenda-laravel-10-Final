@@ -109,7 +109,7 @@ class GuruController extends Controller
     //  fungsi insert pada laravel
        User::create($data);
     // Redirect ke sebuah halaman utama guru yaitu pada pada folder guru di file index
-       return redirect('guru')->with('success','Berhasil');
+       return redirect('guru')->with('success','Berhasil Di Tambahkan');
     }
 
     /**
@@ -206,7 +206,7 @@ class GuruController extends Controller
         $d->save();
   
   
-       return redirect('guru')->with('info','Berhasil di');
+       return redirect('guru')->with('success','Berhasil Diubah');
   
     }
 
@@ -221,7 +221,7 @@ class GuruController extends Controller
         $data = User::where('id_user' , $id)->first();
         File::delete(public_path('foto').'/'.$data->foto);
         User::where('id_user' , $id)->delete();
-        return redirect('guru')->with('warning','Nama '.$data->name);
+        return redirect('guru')->with('success','Nama '.$data->name.'Berhasil Dihapus');
     }
 }
    

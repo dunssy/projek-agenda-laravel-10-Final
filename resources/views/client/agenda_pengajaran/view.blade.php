@@ -23,8 +23,8 @@
                 <td>{{$data->mapel->mapel }}</td>
                 <td>{{$data->kelas->kelas }}</td>
                 <td>{{$data->jurusan->jurusan }}</td>
-                <td><a href="" class="btn btn-success">Export Excel</a>
-                  <a href="" class="btn btn-danger">Print</a></td>
+                <td>
+                  <a href="{{url('laporan/agenda/' . $data->id)}}" class="btn btn-secondary">Print</a></td>
               </tr>
               @endforeach    
             </tbody>
@@ -65,8 +65,10 @@
                  <td>{{$item->absen}}</td>
                  <td>{{$item->keterangan}}</td>
                  <td><a href="{{url('agenda/pengajaran/'.$item->id.'/edit ')}}" class="btn btn-warning mb-4">Edit</a>
-                  <a href="" class="btn btn-danger mb-4">hapus</a>
-                  <a href="{{url('agenda/file'.$item->id)}}" class="btn btn-success mb-4">Lihat Materi</a></td>
+                  <form onsubmit="return confirm('Yakin hapus Data ')" class="d-inline" action="{{ url('agenda/pengajaran/' . $item->id)}}" method="POST">@csrf @method('DELETE')
+                    <button class="btn btn-danger mb-4">Hapus</button>
+                    </form>
+                  <a href="{{asset('dokumen/'. $item->file)}}" class="btn btn-success mb-4">Lihat Materi</a></td>
                 </tbody>
                 @endforeach
               </table>

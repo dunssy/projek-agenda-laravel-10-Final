@@ -32,19 +32,22 @@ class TahunAjaranController extends Controller
     {
         //
         $request->validate([
-            'nama'=>'required|'
+            'nama'=>'required',
+            'status'=>'required'
         ],
         [
             'nama.required'=>'Field Tidak Boleh Kosong',
+            'status.required'=>'Field Tidak Boleh Kosong'
         ]
     );
 
     $data = [
-        'ajaran'=>$request->input('nama')
+        'ajaran'=>$request->input('nama'),
+        'status'=>$request->input('status')
         ];
 
     TahunAjaran::create($data);
-    return redirect('tahun_ajaran')->with('success','Tahun Ajaran');
+    return redirect('tahun_ajaran')->with('success','Tahun Ajaran Berhasil Ditambahkan');
     }
 
     /**
@@ -73,19 +76,22 @@ class TahunAjaranController extends Controller
     {
         $request->validate(
             [
-                'nama'=>'required'
+                'nama'=>'required',
+                'status'=>'required'
             ],
             [
                 'nama.required'=>'nama tidak boleh kosong',
+                'status.required'=>'status tidak boleh kosong'
                
             ]);
     
             $data = [
-            'ajaran'=>$request->input('nama')
+            'ajaran'=>$request->input('nama'),
+            'status'=>$request->input('status')
             ];
     
             TahunAjaran::where('id_ajaran' , $id )->update($data);
-            return redirect('tahun_ajaran')->with('info','Tahun ajaran Berhasil');
+            return redirect('tahun_ajaran')->with('success','Tahun ajaran Berhasil Diubah');
     }
 
     /**
@@ -96,6 +102,6 @@ class TahunAjaranController extends Controller
          //
          $data = TahunAjaran::where('id_ajaran' , $id)->first();
          TahunAjaran::where('id_ajaran' , $id)->delete();
-         return redirect('tahun_ajaran')->with('warning','Tahun Ajaran '.$data->ajaran);
+         return redirect('tahun_ajaran')->with('success','Tahun Ajaran '.$data->ajaran .' Berhasil Dihapus');
     }
 }

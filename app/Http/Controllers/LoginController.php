@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class LoginController extends Controller
 {
     public function index(){
@@ -19,10 +18,10 @@ class LoginController extends Controller
        ],
        [ 
         // Menampilkan sebuah pesan jika user tidak menginput data pada form login 
-        'email.required'=>'Email Harus di isi',
-        'password.required'=>'Password Harus di isi'
+        'email.required'=>'Email Tidak Boleh Kosong',
+        'password.required'=>'Password Tidak Boleh Kosong'
        ]
-       );
+       ); 
        // Menyimpan data dari validate  
        $infologin = [
         'email'=> $request->email,
@@ -33,21 +32,21 @@ class LoginController extends Controller
             //Mengecek Level 
             if(Auth::user()->level == 'admin'){
                 // User admin
-                    return redirect('dashboard');        
+                    return redirect('dashboard')->with('info','Selamat Datang Kembali');        
             }elseif(Auth::user()->level == 'kepsek'){
                 // User Kepsek
-                    return redirect('agenda');
+                    return redirect('agenda'); 
             }elseif(Auth::user()->level == 'guru'){
                 // User Guru
-                    return redirect('dashboard/guru');
+                    return redirect('dashboard/guru')->with('info','Selamat Datang Kembali');
             } 
         }else{
             // Jika login gagal kembalikan ke form login awal dengan mengirim sebuah pesan eror 
-            return redirect('login')->withErrors('Email Dan Password Tidak Sesuai');
-        }
+            return redirect('login')->with('error','Username Dan Password Salah');
 
     }
 
+    }
 
     public function logout(){
         // User Logout 

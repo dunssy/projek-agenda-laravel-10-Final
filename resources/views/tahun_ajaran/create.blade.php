@@ -18,11 +18,26 @@
             @endif  
             <form action="/tahun_ajaran" method="POST">
              @csrf
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="nama" id="floatingInput" value="{{Session::get('nama')}}">
-                    <label for="floatingInput">Tahun Ajaran</label>
+             <div class="row">
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="nama" id="nama" value="{{Session::get('nama')}}">
+                        <label for="nama">Tahun Ajaran</label>
+                    </div>
                 </div>
-                <div class="d-grid gap-2">
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <select name="status" class="form-select" id="status" >
+                            <option value="" disable>Pilih...</option>
+                            <option value="Y">Aktif</option>
+                            <option value="T">Non Aktif</option>
+                        </select>
+                        <label for="status">Status</label>
+                    </div>
+                </div>
+             </div>
+             
+                <div class="d-grid gap-2 d-md-block pt-3">
                     <button class="btn btn-primary" type="submit" name="save">simpan</button>
                 </div>
             </form>

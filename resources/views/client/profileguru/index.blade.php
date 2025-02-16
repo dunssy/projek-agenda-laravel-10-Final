@@ -22,7 +22,6 @@
                       <strong>Email</strong>
                       <p>{{Auth::user()->email}}</p>
                   </div>
-                  <a href="https://www.instagram.com/midun_ahmad17/" class="btn btn-primary">Follow</a> 
               </div>
           </div>
       </div>

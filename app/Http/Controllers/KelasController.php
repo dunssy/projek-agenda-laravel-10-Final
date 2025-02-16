@@ -41,7 +41,7 @@ class KelasController extends Controller
     ];
 
     kelas::create($data);
-    return redirect('kelas')->with('success','kelas');
+    return redirect('kelas')->with('success','Kelas Berhasil Ditambahkan');
     }
 
     /**
@@ -83,7 +83,7 @@ class KelasController extends Controller
             ];
     
             kelas::where('id_kelas' , $id )->update($data);
-            return redirect('kelas')->with('info','kelas Berhasil');
+            return redirect('kelas')->with('success','Kelas Berhasil Diubah');
     }
 
     /**
@@ -94,7 +94,7 @@ class KelasController extends Controller
         //
         $data = kelas::where('id_kelas' , $id)->first();
         kelas::where('id_kelas' , $id)->delete();
-        return redirect('kelas')->with('warning','kelas '.$data->kelas);
+        return redirect('kelas')->with('success','kelas '.$data->kelas .'Berhasil Dihapus');
 
     }
 }

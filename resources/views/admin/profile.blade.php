@@ -20,7 +20,6 @@
                         <strong>Email</strong>
                         <p>{{Auth::user()->email}}</p>
                     </div>
-                    <a href="https://www.instagram.com/midun_ahmad17/" class="btn btn-primary">Follow</a> 
                 </div>
             </div>
         </div>
@@ -44,7 +43,7 @@
                     <!-- Settings Form -->
                     <form>
                         <div class="mb-3 row">
-                            <label for="name" class="col-sm-2 col-form-label">Name</label>
+                            <label for="name" class="col-sm-2 col-form-label">Username</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="name" placeholder="{{Auth::user()->username}}" disabled>
                             </div>

@@ -128,7 +128,7 @@ class AdminEditController extends Controller
         $d->level = $request->input('level');
         $d->save();
   
-       return redirect('settings')->with('info','Berhasil di');
+       return redirect('settings')->with('success','Berhasil Di Ubah');
     }
 
     /**

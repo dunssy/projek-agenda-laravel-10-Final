@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mapel;
 use Illuminate\Http\Request;
-
+use Flasher\Prime\FlasherInterface;
 class MapelController extends Controller
 {
     /**
@@ -41,6 +41,7 @@ class MapelController extends Controller
             'nama'=>'required|max:200|min:3'
         ],
         [
+            
             'nama.required'=>'nama tidak boleh kosong',
             'nama.max'=>'nama tidak boleh lebih',
             'nama.min'=>'nama tidak boleh kurang'
@@ -49,9 +50,9 @@ class MapelController extends Controller
         $data = [
         'mapel'=>$request->input('nama')
         ];
-
+        
         Mapel::create($data);
-        return redirect('mapel')->with('success','Mapel');
+        return redirect('mapel')->with('success','Berhasil Di Tambahkan ');
     }
 
     /**
@@ -95,7 +96,7 @@ class MapelController extends Controller
             ];
     
             Mapel::where('id_mapel' , $id )->update($data);
-            return redirect('mapel')->with('info','Mapel Berhasil');
+            return redirect('mapel')->with('success','Berhasil Di Ubah');
     }
 
     /**
@@ -106,6 +107,6 @@ class MapelController extends Controller
         //
         $data = Mapel::where('id_mapel' , $id)->first();
         Mapel::where('id_mapel' , $id)->delete();
-        return redirect('mapel')->with('warning','Mapel '.$data->mapel);
+        return redirect('mapel')->with('success','Berhasil Di Hapus');
     }
 }
