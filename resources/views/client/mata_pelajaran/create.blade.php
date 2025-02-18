@@ -1,9 +1,10 @@
 @extends('layout.navbar')
 @section('main')
     <div class="container mt-4">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <a href="/agenda/mapel" class="btn btn-warning mb-3">Kembali</a>
-        </div>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/agenda/mapel">{{$title}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{$halaman}}</li>
+          </ol>
         <div class="card">
           <div class="card-header">
             <!-- Header -->

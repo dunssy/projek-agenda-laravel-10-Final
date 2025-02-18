@@ -1,8 +1,12 @@
 @extends('layout.navbar')
 @section('main')    
 <div class="container mt-4">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">{{$halaman}}</li>
+    <li class="breadcrumb-item"><a href="/agenda/mapel">{{$title}}</a></li>
+  </ol>
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <a href="/agenda/mapel/create" class="btn btn-primary">Tambah Mata Pelajaran</a>
+    <a href="/agenda/mapel/create" class="btn btn-primary"><ion-icon name="add"></ion-icon>Tambah Mata Pelajaran</a>
   </div>
   <div class="card">
     <div class="card-header">
@@ -30,9 +34,9 @@
            <td>{{$item->kelas->kelas}}</td>
            <td>{{$item->jurusan->jurusan}}</td>
             <td>
-              <a href="{{url('agenda/mapel/'.$item->id.'/edit')}}" class="btn btn-warning btn-sm">edit</a>
+              <a href="{{url('agenda/mapel/'.$item->id.'/edit')}}" class="btn btn-warning btn-sm"><ion-icon name="open"></ion-icon></a>
               <form onsubmit="return confirm('Yakin hapus Data ')" class="d-inline" action="{{ url('agenda/mapel/' . $item->id)}}" method="POST">@csrf @method('DELETE')
-                <button class="btn btn-danger btn-sm">Hapus</button>
+                <button class="btn btn-danger btn-sm"><ion-icon name="trash"></ion-icon></button>
                 </form>
             </td>
           </tr>

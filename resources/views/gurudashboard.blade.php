@@ -1,12 +1,11 @@
 @extends('layout.navbar')
 @section('main')
-    <div class="container pt-4">
-        <div class="alert alert-success alert-dismissible fade show overflow-auto" style="max-height: 3000px;" role="alert">
-            <strong>Selamat</strong> Datang<strong></strong> Pada projek agenda Ini</i>.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
+
     <div class="container mt-5 pt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard/guru">Agenda Guru</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{$title}}</li>
+          </ol>
         <div class="card md-col-4 shadow">
             <div class="card-header">
                 <div class="header">
@@ -18,7 +17,7 @@
                         $ajaran = TahunAjaran::where('status', 'Y')->get();
                     @endphp         
                     @foreach ($ajaran as $item)     
-                    <p class="text-dark">TAHUN AJARAN : {{$item->ajaran}}</b></p> 
+                    <h5 class="text-dark">TAHUN AJARAN : {{$item->ajaran}}</b></h5> 
                     @endforeach             
                     <hr>
                 </div>

@@ -1,11 +1,13 @@
 @extends('layout.navbar')
 @section('main')
 <div class="container mt-5">
-  <div class="row">
-      <div class="col-md-8">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/agenda/pengajaran">{{$title}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{$halaman}}</li>
+      </ol>
           <div class="card shadow">
             <div class="card-header bg-primary">
-                <h2 class="text-white">Tambah Agenda</h2>
+                <h2 class="text-white">{{$halaman}}</h2>
                 <p class="text-white">Jurnal Laporan</p>
             </div>
             <div class="card-body">
@@ -21,18 +23,26 @@
                    @endif 
                   <!-- Settings Form -->
                   <form action="/agenda/pengajaran" method="POST" enctype="multipart/form-data">     
-                    @csrf        
-                    <label for="id-g-mapel">Pilih Mapel:</label>
-                    <select name="gmapel" id="id-g-mapel" class="form-control mb-3" required>
-                        <option value="">Pilih Pelajaran</option>
-                        @foreach ($data as $item)
-                            <option value="{{$item->id}}">{{ $item->mapel->mapel}} - {{ $item->kelas->kelas }} - {{$item->jurusan->jurusan}}</option>
-                        @endforeach
-                    </select>
-                    <label for="tglan">Tanggal</label>
-                    <input type="date" name="tglan" class="form-control mb-3">
-                    <label for="jam">Jam</label>
-                    <input type="time" name="jam" class="form-control mb-3">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="id-g-mapel">Pilih Mapel:</label>
+                            <select name="gmapel" id="id-g-mapel" class="form-select mb-3" required>
+                                <option value="">Pilih Pelajaran</option>
+                                @foreach ($data as $item)
+                                    <option value="{{$item->id}}">{{ $item->mapel->mapel}} - {{ $item->kelas->kelas }} - {{$item->jurusan->jurusan}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tglan">Tanggal</label>
+                            <input type="date" name="tglan" class="form-control mb-3">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="jam">Jam</label>
+                            <input type="time" name="jam" class="form-control mb-3">
+                        </div>
+                    </div>        
                     <label for="materiagenda">Materi</label>
                     <textarea name="materiagenda" class="form-control mb-3" id="" cols="5" rows="5"></textarea>
                     <label for="absen">Absen</label>
@@ -45,8 +55,6 @@
                   </form>
               </div>
           </div>
-      </div>
-  </div>
 </div>
 
 @endsection

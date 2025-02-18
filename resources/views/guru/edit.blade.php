@@ -123,7 +123,7 @@
                     </div>
                 </div>
                   
-                    <div class="d-grid gap-2">
+                    <div class="d-grid gap-2 d-md-block pt-3"   >
                         <button class="btn btn-primary" type="submit" name="save">simpan</button>
                     </div>
                 </form>

@@ -1,8 +1,12 @@
 @extends('layout.navbar')
 @section('main')  
 <div class="container mt-4 px-3" >
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">{{$halaman}}</li>
+    <li class="breadcrumb-item"><a href="/agenda/pengajaran">{{$title}}</a></li>
+  </ol>
   <div class="row mb-3">
-    <div class="col">
+
       <div class="card mb-3">
         <div class="card-header">
           <h5 class="text-title">Mata Pelajaran</h5>
@@ -24,7 +28,7 @@
                 <td>{{$data->kelas->kelas }}</td>
                 <td>{{$data->jurusan->jurusan }}</td>
                 <td>
-                  <a href="{{url('laporan/agenda/' . $data->id)}}" class="btn btn-secondary">Print</a></td>
+                  <a href="{{url('laporan/agenda/' . $data->id)}}" class="btn btn-secondary"><ion-icon name="print"></ion-icon>Print</a></td>
               </tr>
               @endforeach    
             </tbody>
@@ -38,7 +42,7 @@
         </div>
            <div class="card-body">
             <div class="mb-3 p-3">
-              <a href="{{url('/agenda/pengajaran/create')}}" class="btn btn-primary">Tambah Jurnal Agenda</a>
+              <a href="{{url('/agenda/pengajaran/create')}}" class="btn btn-primary"><ion-icon name="add"></ion-icon>Tambah Jurnal Agenda</a>
            
             </div>
             <table class="table table-bordered table-hover">
@@ -64,17 +68,16 @@
                  <td>{{$item->materi}}</td>
                  <td>{{$item->absen}}</td>
                  <td>{{$item->keterangan}}</td>
-                 <td><a href="{{url('agenda/pengajaran/'.$item->id.'/edit ')}}" class="btn btn-warning mb-4">Edit</a>
+                 <td><a href="{{url('agenda/pengajaran/'.$item->id.'/edit ')}}" class="btn btn-warning"><ion-icon name="open"></ion-icon></a>
                   <form onsubmit="return confirm('Yakin hapus Data ')" class="d-inline" action="{{ url('agenda/pengajaran/' . $item->id)}}" method="POST">@csrf @method('DELETE')
-                    <button class="btn btn-danger mb-4">Hapus</button>
+                    <button class="btn btn-danger"><ion-icon name="trash"></ion-icon></button>
                     </form>
-                  <a href="{{asset('dokumen/'. $item->file)}}" class="btn btn-success mb-4">Lihat Materi</a></td>
+                  <a href="{{asset('dokumen/'. $item->file)}}" class="btn btn-success"><ion-icon name="document"></ion-icon></a></td>
                 </tbody>
                 @endforeach
               </table>
               {{$agenda->links()}}
         </div>
       </div>
-    </div>
 </div>  
 @endsection

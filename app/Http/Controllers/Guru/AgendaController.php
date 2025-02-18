@@ -21,7 +21,8 @@ class AgendaController extends Controller
         $data = G_mapel::with('mapel', 'kelas', 'jurusan')->where('id_user', Auth::id())->get();
         $agenda = Agenda::with('g_mapel')->where('id_user', Auth::id())->paginate(3);
         return view('client.agenda_pengajaran.view',[
-            'title'=>'agenda pengajaran',
+            'title'=>'Agenda Pengajaran',
+            'halaman'=>'Data Agenda',
             'data' => $data,
             'agenda' =>$agenda
         ]);
@@ -35,7 +36,8 @@ class AgendaController extends Controller
     $data = G_mapel::with('mapel', 'kelas', 'jurusan')->where('id_user', Auth::id())->get();
     return view('client.agenda_pengajaran.create',
      [
-        'title' => 'Buat Jurnal',
+        'title' => 'Agenda Pengajaran',
+        'halaman' => 'Buat Agenda Pengajaran',
         'data' => $data
     ]);
     }
@@ -104,7 +106,9 @@ class AgendaController extends Controller
 
         return view('client.agenda_pengajaran.edit',
          [
-            'title' => 'Edit Jurnal','agenda'=>$agenda,'data'=>$data
+            'title' => 'Agenda Pengajaran',
+            'halaman' => 'Edit Agenda Pengajaran',
+            'agenda'=>$agenda,'data'=>$data
         ]);
     }
 

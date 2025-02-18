@@ -22,7 +22,7 @@ class MapelGuruController extends Controller
     // Memmanggil data dari table relasii S
     $data = G_mapel::with('mapel','kelas','jurusan')->where('id_user', Auth::id())->get();
 
-    return view('client.mata_pelajaran.index',['title'=>'Mapel Guru'],compact('data'));
+    return view('client.mata_pelajaran.index',['title'=>'Mapel Guru','halaman'=>'Data Mapel'],compact('data'));
     }
 
     /**
@@ -35,7 +35,7 @@ class MapelGuruController extends Controller
         $kelas = Kelas::all();
         $jurusan = Jurusan::all();
        $data = G_mapel::with('mapel','kelas','jurusan')->where('id_user',Auth::id())->get();
-        return view('client.mata_pelajaran.create',['title'=>'Jurnal Agenda'],compact('data','mapel','kelas','jurusan'));
+        return view('client.mata_pelajaran.create',['title'=>'Mapel Guru','halaman'=>'Buat Mapel'],compact('data','mapel','kelas','jurusan'));
     }   
 
     /**
@@ -88,7 +88,7 @@ class MapelGuruController extends Controller
         $kelas = Kelas::all();
         $jurusan = Jurusan::all();
         $data = G_mapel::with('mapel','kelas','jurusan')->first();
-        return view('client.mata_pelajaran.edit',['title'=>'Edit Mapel'],compact('data','mapel','kelas','jurusan'));
+        return view('client.mata_pelajaran.edit',['title'=>'Mapel Guru','halaman'=>'Mapel Edit'],compact('data','mapel','kelas','jurusan'));
     }
 
     /**
