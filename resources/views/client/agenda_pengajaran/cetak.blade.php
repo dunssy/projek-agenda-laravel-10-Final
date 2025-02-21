@@ -21,7 +21,6 @@
 <br>
 <br>
 <br>
-
 	<table width="100%" height="100%" style="border: 2px dashed;">
   <tr>
     <h2><p align="center">LAPORAN KEGIATAN HARIAN</p></h2> 
@@ -30,7 +29,7 @@
     <hr style="border: 2px;">
     <br>
   {{-- Ini Gmapel  --}}
-    {{-- <p align="center" class="style1"><img src="{{asset('img/1.jpg')}}" width="200" height="180" alt="ini foto"/></p> --}}
+    <p align="center"><img src="{{$image}}" alt=""></p>
     <table width="200" align="center">
       <tr>
         <td><span class="style2">NAMA</span></td>
@@ -65,9 +64,7 @@
 <br>
 <br>
 <br>
-
-
-
+<br>
 	 <table>
 	 		<tr>
 	 			<td>Guru Mata Pelajaran</td>

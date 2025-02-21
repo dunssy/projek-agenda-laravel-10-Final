@@ -13,10 +13,10 @@
           <a class="nav-link active" aria-current="page" href="/dashboard/guru">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/agenda/mapel">Mata Pelajaran</a>
+          <a class="nav-link" aria-current="page" href="/agenda/mapel">Mata Pelajaran</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/agenda/pengajaran">Agenda Pengajaran</a>
+          <a class="nav-link" aria-current="page" href="/agenda/pengajaran">Agenda Pengajaran</a>
         </li>
       </ul>
     </div>
@@ -42,11 +42,10 @@
             </svg> Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li> 
-              <form onsubmit="return confirm('Yakin keluar akun')" class="d-inline" action="/logout" method="GET">
-                <button class="dropdown-item" href="/logout"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
-                  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
-                </svg> Logout</button>
+              <a href="#" onclick="confirmLogout()" class="dropdown-item"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+              </svg> Logout</a>
               </form>
             </li>
           </ul>
@@ -55,19 +54,23 @@
     </div>
   </div>
 </nav>
-
-{{-- Pesan tampilkan pesan saat user mengisikan form--}}
-@if (Session::get('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>{{Session::get('success')}}</strong> Di Tambahkan.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-@if (Session::get('info'))
-        <div class="alert alert-info alert-dismissible fade show" role="alert">
-            <strong>{{Session::get('info')}}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
+{{--Sweet Logout Guru--}}
+<script>
+  function confirmLogout() {
+      Swal.fire({
+          title: 'Apakah Anda yakin?',
+          icon: 'info',
+          text: "Anda akan keluar dari halaman ini!",
+          showCancelButton: true,
+          confirmButtonColor: '#3BB143',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Ya, keluar!'
+      }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = '/logout';
+          }
+      })
+  }
+</script>
 @yield('main')
 @endsection

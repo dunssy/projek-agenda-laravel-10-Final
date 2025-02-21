@@ -19,41 +19,36 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#datamaster" aria-expanded="false" aria-controls="auth">
-                    <i><ion-icon name="settings"></ion-icon></i>
-                    <span>Data Master</span>
-                </a>
-                    <ul id="datamaster" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <a href="/mapel" class="sidebar-link collapsed has-dropdown">
+                        <a href="/mapel" class="sidebar-link">
                             <i><ion-icon name="paper"></ion-icon></i> 
                             <span>Kelola Mapel</span>
                         </a>
-                        <a href="/jurusan" class="sidebar-link collapsed has-dropdown">
+            </li>
+            <li class="sidebar-item">
+                        <a href="/jurusan" class="sidebar-link">
                             <i><ion-icon name="business"></ion-icon></i> 
                             <span>Kelola Jurusan</span>
                         </a>
-                        <a href="/kelas" class="sidebar-link collapsed has-dropdown">
+            </li>
+            <li class="sidebar-item">
+                        <a href="/kelas" class="sidebar-link">
                             <i><ion-icon name="bookmark"></ion-icon></i> 
                             <span>Kelola Kelas</span>
                         </a>
-                        <a href="/tahun_ajaran" class="sidebar-link collapsed has-dropdown">
+            </li>
+            <li class="sidebar-item">
+                        <a href="/tahun_ajaran" class="sidebar-link ">
                             <i><ion-icon name="school"></ion-icon></i> 
                             <span>Tahun Ajaran</span>
                         </a>
-                    </ul>
             </li>
+           
             <li class="sidebar-item">
                 <a href="/guru" class="sidebar-link collapsed has-dropdown">
                     <i><ion-icon name="folder-open"></ion-icon></i></i>
-                    <span>Manage User</span>
+                    <span>Manage Guru</span>
                 </a>
-            </li>   
-            {{-- <li class="sidebar-item">
-                <a href="{{route('admin.index')}}" class="sidebar-link collapsed has-dropdown">
-                    <i><ion-icon name="person-add"></ion-icon></i></i>
-                    <span>Manage User</span>
-                </a>
-            </li> --}}
+            </li>
         </ul>
         <div class="sidebar-footer">
                 <a href="https://www.instagram.com/midun_ahmad17/" class="sidebar-link bg-primary">
@@ -64,7 +59,7 @@
     <div class="main p-4"  style="max-height: 600px; overflow-y: auto;">
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Halaman Administrator</a>
+              <a class="navbar-brand" href="{{url('dashboard')}}">Halaman Administrator</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -88,12 +83,31 @@
                       </svg> Profile</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li>
-                        <form onsubmit="return confirm('Yakin keluar akun')" class="d-inline" action="/logout" method="GET">
-                            <button class="dropdown-item">Logout</button>
-                       </form>
+                        <a href="#" onclick="confirmLogout()" class="dropdown-item"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                          <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                        </svg> Logout</a>
                      </li>
                     </ul>
                   </li>
+                    {{--Sweet Logout Admin--}}
+                    <script>
+                      function confirmLogout() {
+                          Swal.fire({
+                              title: 'Apakah Anda yakin?',
+                              icon: 'info',
+                              text: "Anda akan keluar dari halaman ini!",
+                              showCancelButton: true,
+                              confirmButtonColor: '#3BB143',
+                              cancelButtonColor: '#d33',
+                              confirmButtonText: 'Ya, keluar!'
+                          }).then((result) => {
+                              if (result.isConfirmed) {
+                                  window.location.href = '/logout';
+                              }
+                          })
+                      }
+                    </script>
                 </ul>
               </div>
             </div>
@@ -108,8 +122,10 @@
             </div>
         </div>       
             @yield('main')
-    
     </div>
 </div>
+
+
+
 @endsection
   

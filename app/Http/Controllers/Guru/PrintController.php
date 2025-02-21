@@ -17,16 +17,17 @@ class PrintController extends Controller
         $agenda = Agenda::where('id_g_mapel', $id)->get();
         // Kirim data ke view untuk di-render
         $data = [
+            'title' => "Cetak LAPORAN",
             'mapel' => $mapel,
             'agenda' => $agenda,
-            'image'=>asset('img/logosmkncompreng.png')
+            'image'=> asset('img/logosmkncompreng.png')
             
         ];
         
         // Render view menjadi PDF
         $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('client.agenda_pengajaran.cetak', $data);
         $pdf->setOptions(['isRemoteEnabled' =>true]);
-        // Atau tampilkan langsung di browser
+        // Atau tampilkan langsung di browser   
         return $pdf->stream("user-{$id}.pdf");
 
     }

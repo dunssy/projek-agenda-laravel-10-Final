@@ -16,7 +16,8 @@
 <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 {{-- Flasher --}}
 <link rel="stylesheet" href="{{asset('vendor/flasher/flasher.min.css')}}">
-{{-- Script --}}
+ <!-- SweetAlert CSS -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <!--===============================================================================================-->	
 <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
@@ -42,19 +43,18 @@
 </head>
 <body>
     @yield('konten')
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"></script> --}}
       {{-- Sidebar script --}}
       <script src="{{asset('js/script.js')}}"></script>
       {{-- Script With Auth --}}
       <script src="{{asset('js/main.js')}}"></script>
       {{-- Ion Icon --}}  
       <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-      {{-- Toastr Script --}}
+      {{-- Flasher script --}}
       <script src="{{asset('vendor/flasher/flasher.min.js')}}"></script>
-    
-<!--===============================================================================================-->
+      {{-- Sweetalert --}}
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      
+<!--=======================================LOGIN ASSET======================================================-->
 	<script src="{{asset('login-asset/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
   <!--===============================================================================================-->
     <script src="{{asset('login-asset/vendor/animsition/js/animsition.min.js')}}"></script>

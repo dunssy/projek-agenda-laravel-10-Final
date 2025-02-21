@@ -47,10 +47,25 @@ Route::middleware(['auth', 'UserAkses:admin'])->group(function () {
          Route::get('/dashboard',[AdminController::class,'index'])->middleware('UserAkses:admin');
          Route::resource('/settings',AdminEditController::class)->middleware('UserAkses:admin');
          Route::resource('/guru', GuruController::class)->middleware('UserAkses:admin');
+         //  Delete Guru
+         Route::get('delete/guru/{id}',[GuruController::class,'destroy'])->middleware('UserAkses:admin');
+        //  End Delete Guru
          Route::resource('/mapel', MapelController::class)->middleware('UserAkses:admin');
+        //  Delete Mapel
+        Route::get('delete/mapeladmin/{id}',[MapelController::class,'destroy'])->middleware('UserAkses:admin');
+        //  End Delete Mapel
          Route::resource('/jurusan', JurusanController::class)->middleware('UserAkses:admin');
+        //  Delete Jurusan
+        Route::get('delete/jurusan/{id}',[JurusanController::class,'destroy'])->middleware('UserAkses:admin');
+        //  End Delete Jurusan
          Route::resource('/kelas' , KelasController::class)->middleware('UserAkses:admin');
+        //  Delete Kelas
+        Route::get('delete/kelas/{id}',[KelasController::class,'destroy'])->middleware('UserAkses:admin');
+        //  End Delete Kelas
          Route::resource('/tahun_ajaran',TahunAjaranController::class)->middleware('UserAkses:admin');
+        //  Delete Tahun Ajaran
+        Route::get('delete/tahun_ajaran/{id}',[TahunAjaranController::class,'destroy'])->middleware('UserAkses:admin');
+        //  End Delete Tahun Ajaran
 });
 Route::middleware(['auth', 'UserAkses:guru'])->group(function(){
             //Hakases Guru
@@ -59,7 +74,14 @@ Route::middleware(['auth', 'UserAkses:guru'])->group(function(){
                 Route::get('dashboard/guru' ,[DashboardGuru::class,'index']);
                 Route::resource('setings/guru', ProfileController::class);
                 Route::resource('agenda/mapel', MapelGuruController::class);
+                // Delete Mapel Guru
+                Route::get('delete/mapel/{id}',[MapelGuruController::class,'destroy']);
+                // End Delete Mapel Guru
                 Route::resource('agenda/pengajaran' , AgendaController::class);
+                // Delete Agenda Pengajaran
+                Route::get('delete/agenda/{id}',[AgendaController::class,'destroy']);
+                // End Delete Agenda Pengajaran
+                // Cetak Laporan
                 Route::get('laporan/agenda/{id}',[PrintController::class,'generatePdf']);
                 Route::get('/home',function(){return redirect('dashboard/guru');});
            });

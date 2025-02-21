@@ -20,7 +20,7 @@
                                 <p class="card-text text-white">Agenda Hari Ini</p>
                             </div>
                             <div class="card-footer text-white">
-                                <a href="#" class="text-white">More info</a>
+                                {{-- <a href="#" class="text-white">Not info</a> --}}
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                                 <p class="card-text text-white">Semua Agenda</p>
                             </div>
                             <div class="card-footer text-white">
-                                <a href="#" class="text-white">More info <ion-icon name="arrow-forward"></ion-icon></a>
+                                {{-- <a href="#" class="text-white">Not info</a> --}}
                             </div>
                         </div>
                     </div>

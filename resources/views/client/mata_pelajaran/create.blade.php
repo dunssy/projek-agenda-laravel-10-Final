@@ -8,10 +8,7 @@
         <div class="card">
           <div class="card-header">
             <!-- Header -->
-              <h3 class="card-title pt-5">Tambah Mata Pelajaran</h3>
-              <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptatibus facilis quidem ex sapiente eos, quaerat veniam corporis voluptas totam quos deserunt fugit!</p>
-            <!-- Back Button -->
-           
+              <h3 class="card-title pt-5">Tambah Mata Pelajaran</h3>   
           </div>
           <div class="card-body">
             @if ($errors->any())

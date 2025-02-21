@@ -66,7 +66,7 @@ class MapelGuruController extends Controller
 
         G_mapel::create($data);
      
-        return redirect('agenda/mapel')->with('success', 'Data berhasil');
+        return redirect('agenda/mapel')->with('success', 'Data berhasil Ditambahkan');
 
     }
 
@@ -115,7 +115,7 @@ class MapelGuruController extends Controller
         ];
 
         G_mapel::where('id',$id)->update($data);
-        return redirect('agenda/mapel')->with('success', 'Data berhasil');   
+        return redirect('agenda/mapel')->with('success', 'Data berhasil Edit');   
     }
 
     /**
@@ -124,6 +124,6 @@ class MapelGuruController extends Controller
     public function destroy(string $id)
     {
         G_mapel::where('id' , $id)->delete();
-        return redirect('agenda/mapel')->with('success','Data Telah ');
+        return redirect('agenda/mapel')->with('success','Data Berrhasil Di hapus');
     }
 }

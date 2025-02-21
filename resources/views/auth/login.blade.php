@@ -4,7 +4,7 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <div class="login100-form-title" style="background-image:url({{URL::asset('login-asset/images/Bg01.jpg')}});">
+            <div class="login100-form-title" style="background-image:url({{URL::asset('img/1.jpg')}});">
                 <span class="login100-form-title-1">
                    Agenda SMKN COMPRENG
                 </span>

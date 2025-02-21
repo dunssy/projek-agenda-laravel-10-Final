@@ -23,7 +23,7 @@
                     <label for="floatingInput">Nama Mapel</label>
                 </div>
                 <div class="d-grid gap-2 d-md-block">
-                    <button class="btn btn-primary" type="button">simpan</button>
+                    <button class="btn btn-primary" type="submit">simpan</button>
                 </div>
           
             </form>

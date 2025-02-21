@@ -221,7 +221,7 @@ class GuruController extends Controller
         $data = User::where('id_user' , $id)->first();
         File::delete(public_path('foto').'/'.$data->foto);
         User::where('id_user' , $id)->delete();
-        return redirect('guru')->with('success','Nama '.$data->name.'Berhasil Dihapus');
+        return redirect('guru')->with('success','Nama '.$data->name.' Berhasil Dihapus');
     }
 }
    

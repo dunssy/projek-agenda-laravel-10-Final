@@ -8,7 +8,6 @@
         <div class="card">
           <div class="card-header">
               <h3 class="card-title">Edit Mata Pelajaran</h3>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius iure inventore error.</p>
           </div>
           <div class="card-body">
             @if ($errors->any())

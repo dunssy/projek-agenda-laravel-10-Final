@@ -28,7 +28,7 @@
                 <td>{{$data->kelas->kelas }}</td>
                 <td>{{$data->jurusan->jurusan }}</td>
                 <td>
-                  <a href="{{url('laporan/agenda/' . $data->id)}}" class="btn btn-secondary"><ion-icon name="print"></ion-icon>Print</a></td>
+                  <a href="{{url('laporan/agenda/' . $data->id)}}" class="btn btn-secondary"  target="_blank"><ion-icon name="print"></ion-icon>Print</a></td>
               </tr>
               @endforeach    
             </tbody>
@@ -68,16 +68,33 @@
                  <td>{{$item->materi}}</td>
                  <td>{{$item->absen}}</td>
                  <td>{{$item->keterangan}}</td>
-                 <td><a href="{{url('agenda/pengajaran/'.$item->id.'/edit ')}}" class="btn btn-warning"><ion-icon name="open"></ion-icon></a>
-                  <form onsubmit="return confirm('Yakin hapus Data ')" class="d-inline" action="{{ url('agenda/pengajaran/' . $item->id)}}" method="POST">@csrf @method('DELETE')
-                    <button class="btn btn-danger"><ion-icon name="trash"></ion-icon></button>
-                    </form>
-                  <a href="{{asset('dokumen/'. $item->file)}}" class="btn btn-success"><ion-icon name="document"></ion-icon></a></td>
+                 <td>
+                  <a href="{{url('agenda/pengajaran/'.$item->id.'/edit ')}}" class="btn btn-warning text-white btn-sm"><ion-icon name="open"></ion-icon> Edit</a>
+                  <a href="#" onclick="confirmDelete('{{$item->id}}')" class="btn btn-danger btn-sm"><ion-icon name="trash"></ion-icon>Hapus</a>
+                  <a href="{{asset('dokumen/'. $item->file)}}" class="btn btn-success btn-sm"   target="_blank"><ion-icon name="document"></ion-icon>View</a>
+                </td>
                 </tbody>
                 @endforeach
               </table>
               {{$agenda->links()}}
         </div>
       </div>
+      <script>
+             function confirmDelete(id) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Anda tidak akan dapat mengembalikan ini!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/delete/agenda/' + id;
+                }
+            })
+        }
+      </script>
 </div>  
 @endsection
