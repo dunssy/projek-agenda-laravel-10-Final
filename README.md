@@ -1,67 +1,72 @@
-## Prerequisites
-Sebelum menginstal Laravel, pastikan sistem Anda memenuhi persyaratan berikut:
+# Projek Agenda Guru Laravel
 
-- **PHP**: Versi 8.1 atau lebih baru
-- **Composer**: Dependency manager untuk PHP
-- **Database**: MySQL, PostgreSQL, SQLite, atau SQL Server
-- **Web Server**: Apache atau Nginx
+Projek ini adalah aplikasi agenda guru yang dibangun menggunakan Laravel 10. Aplikasi ini memungkinkan guru untuk mengelola mata pelajaran, kelas, dan jurusan.
 
-## Installation Steps
+## Fitur
 
-### 1. Install Composer
-Laravel menggunakan Composer untuk mengelola dependensi. Jika belum terinstal, unduh dan instal Composer dari [https://getcomposer.org/](https://getcomposer.org/).
+- Autentikasi pengguna
+- Manajemen mata pelajaran
+- Manajemen kelas
+- Manajemen jurusan
+- Cetak laporan
 
-### 2. Install Laravel
-```sh
-composer update
-```
-## 3.Konfigurasi Library
-```sh
-composer require php-flasher/flasher-laravel
-```
+## Persyaratan
 
-## Additional Setup
+- PHP >= 8.0
+- Composer
+- MySQL
 
-### Install Node.js dan NPM (Opsional)
-Jika menggunakan Laravel Mix untuk asset bundling, pastikan Node.js dan npm telah terinstal. Kemudian, jalankan perintah berikut:
-```sh
-npm install
-npm run dev
-```
+## Instalasi
 
----
-### 4. Konfigurasi Environment
-Salin file `.env.example` menjadi `.env`:
-```sh
-cp .env.example .env
-```
+1. Clone repository ini:
 
-Kemudian, jalankan perintah berikut untuk menghasilkan application key:
-```sh
-php artisan key:generate
-```
+    ```bash
+    git clone https://github.com/username/projek-agenda-guru-laravel.git
+    cd projek-agenda-guru-laravel
+    ```
 
-### 5. Konfigurasi Database
-Edit file `.env` dan sesuaikan dengan konfigurasi database Anda:
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=nama_database
-DB_USERNAME=root
-DB_PASSWORD=
-```
-Setelah itu, jalankan migrasi database:
-```sh
-php artisan migrate
-```
+2. Install dependencies menggunakan Composer:
 
-### 6. Jalankan Server Laravel
-Untuk menjalankan server pengembangan Laravel, gunakan perintah berikut:
-```sh
-php artisan serve
-```
-Akses aplikasi melalui browser di `http://127.0.0.1:8000`.
+    ```bash
+    composer install
+    ```
 
-Selamat! Anda telah berhasil menginstal Laravel 🎉
+3. Salin file `.env.example` menjadi `.env` dan sesuaikan konfigurasi database:
 
+    ```bash
+    cp .env.example .env
+    ```
+
+4. Generate application key:
+
+    ```bash
+    php artisan key:generate
+    ```
+
+5. Migrasi dan seed database:
+
+    ```bash
+    php artisan migrate --seed
+    ```
+
+6. Jalankan server pengembangan:
+
+    ```bash
+    php artisan serve
+    ```
+
+Aplikasi sekarang dapat diakses di `http://localhost:8000`.
+
+## Penggunaan
+
+1. Daftar atau login sebagai pengguna.
+2. Tambahkan mata pelajaran, kelas, dan jurusan.
+3. Cetak laporan melalui halaman yang tersedia.
+
+## Kontribusi
+
+Silakan buat pull request untuk kontribusi atau buka issue untuk melaporkan bug.
+
+## Lisensi
+
+Projek ini dilisensikan di bawah [MIT License](LICENSE).
