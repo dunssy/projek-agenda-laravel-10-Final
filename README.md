@@ -1,3 +1,5 @@
+![Laravel Logo](https://laravel.com/img/logomark.min.svg)
+
 # Projek Agenda Guru Laravel
 
 Projek ini adalah aplikasi agenda guru yang dibangun menggunakan Laravel 10. Aplikasi ini memungkinkan guru untuk mengelola mata pelajaran, kelas, dan jurusan.
