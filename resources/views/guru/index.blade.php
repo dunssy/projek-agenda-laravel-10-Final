@@ -70,6 +70,7 @@
               {{$data->links()}}
         </div>
     </div>
+    
     {{--Sweet Alert Guru--}}
     <script>
         function confirmDelete(id) {

@@ -29,7 +29,6 @@
     <hr style="border: 2px;">
     <br>
   {{-- Ini Gmapel  --}}
-    <p align="center"><img src="{{$image}}" alt=""></p>
     <table width="200" align="center">
       <tr>
         <td><span class="style2">NAMA</span></td>
@@ -52,6 +51,7 @@
     <p align="center" class="style1">&nbsp;</p></td>
   </tr>
 </table>
+<br>
 <br>
 <br>
 <br>

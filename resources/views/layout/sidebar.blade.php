@@ -122,9 +122,9 @@
             </div>
         </div>       
             @yield('main')
+            @include('layout.footer')
     </div>
 </div>
-
 
 
 @endsection

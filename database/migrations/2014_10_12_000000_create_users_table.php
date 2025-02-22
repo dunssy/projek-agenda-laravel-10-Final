@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,11 +26,12 @@ return new class extends Migration
             $table->enum('agama',['islam','kristen','katolik','hindu','budha','konghucu'])->nullable();
             $table->string('email')->unique();
             $table->string('foto')->nullable();
-            $table->enum('level',['admin','guru','kepsek'])->default('admin');
+            $table->enum('level',['admin','guru'])->default('admin');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
+       
     }
 
     /**
