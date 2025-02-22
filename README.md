@@ -2,7 +2,7 @@
 
 # Projek Agenda Guru Laravel
 
-Projek ini adalah aplikasi agenda guru yang dibangun menggunakan Laravel 10. Aplikasi ini memungkinkan guru untuk mengelola mata pelajaran, kelas, dan jurusan.
+Projek ini adalah aplikasi agenda guru yang dibangun menggunakan Laravel 10. Aplikasi ini memungkinkan guru untuk mengelola mata pelajaran, kelas, dan jurusan,serta pengisian journal harian
 
 ## Fitur
 
@@ -10,6 +10,7 @@ Projek ini adalah aplikasi agenda guru yang dibangun menggunakan Laravel 10. Apl
 - Manajemen mata pelajaran
 - Manajemen kelas
 - Manajemen jurusan
+- manajemen agenda
 - Cetak laporan
 
 ## Persyaratan
