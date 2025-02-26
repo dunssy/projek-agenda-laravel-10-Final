@@ -3,6 +3,7 @@
 <a href="mapel/create" class="btn btn-primary mb-3"><ion-icon name="add-circle"></ion-icon>Tambah mapel</a>
 
     <div class="card">
+        @include('komponen.pesan')
         <div class="card-header">
                 <h4 class="card-title text-start">Data mapel</h4>
             </div>

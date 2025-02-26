@@ -37,6 +37,7 @@ class GuruController extends Controller
     */
     public function create()
     {
+       
         return view('guru.create',['title'=>'Kelola Guru','halaman'=>'Tambah Guru']);
     }
 
@@ -110,14 +111,6 @@ class GuruController extends Controller
        User::create($data);
     // Redirect ke sebuah halaman utama guru yaitu pada pada folder guru di file index
        return redirect('guru')->with('success','Berhasil Di Tambahkan');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-       
     }
 
     
@@ -222,6 +215,20 @@ class GuruController extends Controller
         File::delete(public_path('foto').'/'.$data->foto);
         User::where('id_user' , $id)->delete();
         return redirect('guru')->with('success','Nama '.$data->name.' Berhasil Dihapus');
+    }
+
+    /**
+     * Remove all resources from storage.
+     */
+    public function bulkDelete($request)
+    {
+        $ids = explode(",",$request);
+        foreach($ids as $id){
+            $data = User::where('id_user' , $id)->first();
+            File::delete(public_path('foto').'/'.$data->foto);
+            User::where('id_user' , $id)->delete();
+        }
+        return redirect('guru')->with('success','Data Berhasil Dihapus');
     }
 }
    

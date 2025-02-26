@@ -21,7 +21,7 @@
              <div class="row">
                 <div class="col-md-4">
                     <div class="form-floating mb-3 ">
-                        <input type="text" class="form-control" name="namaguru"  id="namaguru"  value="">
+                        <input type="text" class="form-control" name="namaguru"  id="namaguru"  value="{{Session::get('namaguru')}}">
                         <label for="namaguru">Nama</label>
                     </div> 
                  </div>
@@ -43,25 +43,25 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
-                        <textarea name="alamatguru" id="alamatguru" cols="10" rows="15" class="form-control"></textarea>
+                        <textarea name="alamatguru" id="alamatguru" cols="10" rows="15" class="form-control">{{Session::get('alamat')}}</textarea>
                         <label for="alamatguru">Alamat</label>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
-                        <input type="text" id="telponguru" name="telponguru" class="form-control">
+                        <input type="text" id="telponguru" name="telponguru" class="form-control" value="{{Session::get('telp')}}">
                         <label for="telponguru">No Handphone</label>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
-                        <input type="text" id="tempat" name="tempat" class="form-control">
+                        <input name="tempat" class="form-control">
                         <label for="tempat">Tempat Lahir</label>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
-                        <input type="date" id="tanggal" name="tanggal" class="form-control">
+                        <input type="date" id="tanggal" name="tanggal" class="form-control" value="{{Session::get('tgl')}}">
                         <label for="tanggal">Tanggal Lahir</label>
                     </div>
                 </div>
@@ -79,13 +79,13 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
-                        <input type="text" name="username" class="form-control" id="username">
+                        <input type="text" name="username" class="form-control" id="username" value="{{Session::get('username')}}">
                         <label for="username">Username</label>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-floating mb-3">
-                        <input type="email" name="emailguru" class="form-control" id="emailguru">
+                        <input type="email" name="emailguru" class="form-control" id="emailguru" value="{{Session::get('email')}}">
                         <label for="emailguru">Email</label>
                     </div>
                 </div>

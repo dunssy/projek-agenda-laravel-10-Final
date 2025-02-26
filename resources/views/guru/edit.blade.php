@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating mb-3">
-                            <textarea name="alamatguru" id="alamatguru" cols="10" rows="15" class="form-control">{{$data->alamat}}</textarea>
+                            <textarea name="alamatguru" id="alamatguru" cols="20" rows="15" class="form-control">{{$data->alamat}}</textarea>
                             <label for="alamatguru">Alamat</label>
                         </div>
                     </div>

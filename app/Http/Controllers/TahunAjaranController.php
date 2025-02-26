@@ -76,10 +76,11 @@ class TahunAjaranController extends Controller
     {
         $request->validate(
             [
-                'nama'=>'required',
+                'nama'=>'required|unique:tahun_ajaran,ajaran',
                 'status'=>'required'
             ],
             [
+                'unique'=>'Tahun Ajaran sudah ada',
                 'nama.required'=>'nama tidak boleh kosong',
                 'status.required'=>'status tidak boleh kosong'
                

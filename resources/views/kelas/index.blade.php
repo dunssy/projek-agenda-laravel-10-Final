@@ -3,6 +3,7 @@
 
 <a href="/kelas/create" class=" btn btn-primary btn-sm mb-3"><ion-icon name="add-circle"></ion-icon>Tambah kelas</a>
     <div class="card">
+        @include('komponen.pesan')
         <div class="card-header">
                 <h4 class="card-title text-start">Data kelas</h4>
             </div>

@@ -42,10 +42,10 @@ class MapelController extends Controller
         // Validasi data Berdasarkan inputan
         $request->validate(
         [
-            'nama'=>'required|max:200|min:3'
+            'nama'=>'required|max:200|min:3|unique:mapel,mapel'
         ],
         [
-            
+            'unique'=>'Data Mapel Sudah Ada',
             'nama.required'=>'nama tidak boleh kosong',
             'nama.max'=>'nama tidak boleh lebih',
             'nama.min'=>'nama tidak boleh kurang'
